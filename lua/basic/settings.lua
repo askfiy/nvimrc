@@ -11,9 +11,9 @@ vim.o.relativenumber = true
 vim.o.scrolloff = 10
 vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"
-vim.o.filetype = "plugin"
 vim.o.list = true
 vim.o.autoindent = true
+vim.o.filetype = "plugin"
 vim.o.hlsearch = true
 vim.o.showmatch = true
 vim.o.wildmenu = true
@@ -24,3 +24,4 @@ vim.o.spelllang = "en_us,cjk"
 vim.o.foldenable = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevel = 100
+

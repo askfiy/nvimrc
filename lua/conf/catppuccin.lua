@@ -7,10 +7,10 @@ require("catppuccin").setup(
         -- 代码样式
         styles = {
             comments = "italic",
-            functions = "italic",
-            keywords = "italic",
+            functions = "NONE",
+            keywords = "NONE",
             strings = "NONE",
-            variables = "italic"
+            variables = "NONE"
         },
         -- 为不同的插件统一样式风格
         cmp = true,
@@ -68,5 +68,4 @@ highlight link LspSagaDiagnosticBorder FloatBorder
 highlight link LspSagaDiagnosticTruncateLine FloatBorder
 " 函数签名背景和文字
 highlight NormalFloat guifg=#D9E0EE guibg=#1E1E2E
-]]
-)
+]])

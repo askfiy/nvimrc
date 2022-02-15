@@ -90,31 +90,22 @@ components.active[1] = {
 components.active[2] = {
     {
         provider = "diagnostic_errors",
-        hl = {fg = "red"},
-        right_sep = {
-            str = " "
-        }
+        hl = {fg = "red"}
     },
     {
         provider = "diagnostic_warnings",
-        hl = {fg = "yellow"},
-        right_sep = {
-            str = " "
-        }
+        hl = {fg = "yellow"}
     },
     {
         provider = "diagnostic_hints",
-        hl = {fg = "cyan"},
-        right_sep = {
-            str = " "
-        }
+        hl = {fg = "cyan"}
     },
     {
         provider = "diagnostic_info",
-        hl = {fg = "skyblue"},
-        right_sep = {
-            str = " "
-        }
+        hl = {fg = "skyblue"}
+    },
+    {
+        provider = " ",
     },
     {
         provider = "git_branch",
@@ -122,6 +113,13 @@ components.active[2] = {
             fg = "white",
             bg = "black",
             style = "bold"
+        },
+        left_sep = {
+            str = " ",
+            hl = {
+                fg = "NONE",
+                bg = "black"
+            }
         },
         right_sep = {
             str = " ",
@@ -164,7 +162,7 @@ components.active[2] = {
         hl = {
             style = "bold"
         },
-        left_sep = "  ",
+        left_sep = " ",
         right_sep = " "
     },
     {
