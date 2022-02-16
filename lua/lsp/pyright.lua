@@ -13,6 +13,6 @@ return {
             analysis = {
                 typeCheckingMode = "off"
             }
-        },
+        }
     }
 }

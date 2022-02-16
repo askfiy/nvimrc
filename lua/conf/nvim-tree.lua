@@ -11,7 +11,7 @@ require("nvim-tree").setup(
         },
         diagnostics = {
             -- 是否启用文件诊断信息
-            enable = true,
+            enable = false,
             icons = {
                 hint = "",
                 info = "",
@@ -21,7 +21,7 @@ require("nvim-tree").setup(
         },
         git = {
             -- 是否启用 git 信息
-            enable = true,
+            enable = false,
             ignore = true,
             timeout = 500
         }
