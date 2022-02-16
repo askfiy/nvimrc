@@ -6,6 +6,8 @@ vim.g.vsnip_snippet_dir = "~/.config/nvim/snippet"
 vim.g.undotree_dir = "~/.cache/nvim/undodir"
 -- 指定 translate 代理服务器
 vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
+-- 是否开启透明背景
+vim.g.background_transparency = true
 
 -- 自动切换输入法（Fcitx 框架）
 vim.cmd(

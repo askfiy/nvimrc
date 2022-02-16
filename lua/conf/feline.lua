@@ -2,6 +2,7 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 -- https://github.com/SmiteshP/nvim-gps
 
+
 local gps = require("nvim-gps")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
