@@ -15,7 +15,7 @@ require("bufferline").setup(
             left_trunc_marker = "",
             right_trunc_marker = "",
             -- 分割符样式："slant" | "thick" | "thin"
-            separator_style = "slant",
+            separator_style = "thin",
             -- 左侧让出 nvim-tree 的位置
             offsets = {
                 {

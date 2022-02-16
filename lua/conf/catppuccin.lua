@@ -3,7 +3,9 @@
 require("catppuccin").setup(
     {
         -- 透明背景
-        transparent_background = false,
+        transparent_background = true,
+        -- 使用终端背景色
+        term_color = false,
         -- 代码样式
         styles = {
             comments = "italic",
@@ -12,10 +14,9 @@ require("catppuccin").setup(
             strings = "NONE",
             variables = "NONE"
         },
+        -- 为不同的插件统一样式风格
         integrations = {
-            -- 为不同的插件统一样式风格
             cmp = true,
-            lsp_saga = true,
             gitsigns = true,
             telescope = true,
             which_key = true,
@@ -31,7 +32,8 @@ require("catppuccin").setup(
             nvimtree = {
                 enabled = true,
                 show_root = false,
-                transparent_panel = false
+                -- 透明背景
+                transparent_panel = true
             },
             native_lsp = {
                 enabled = true,
@@ -47,7 +49,9 @@ require("catppuccin").setup(
                     warnings = "underline",
                     information = "underline"
                 }
-            }
+            },
+            -- 手动设置
+            lsp_saga = false
         }
     }
 )
