@@ -82,7 +82,7 @@ components.active[1] = {
             return gps.is_available()
         end,
         left_sep = {
-            {str = " ", hl = {bg = "NONE", fg = "NONE"}}
+            {str = " ", hl = {bg = "bg", fg = "NONE"}}
         }
     }
 }

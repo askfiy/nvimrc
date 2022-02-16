@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- https://github.com/wbthomason/packer.nvim
 
 local packer = require("packer")
@@ -18,7 +19,6 @@ packer.startup(
                     require("conf.nvim-lspconfig")
                 end
             }
-
 
             -- 自动安装 LSP
             use {
@@ -86,6 +86,14 @@ packer.startup(
                 },
                 config = function()
                     require("conf.nvim-cmp")
+                end
+            }
+
+            -- git copilot 自动补全
+            use {
+                "github/copilot.vim",
+                config = function()
+                    require("conf.copilot")
                 end
             }
 
