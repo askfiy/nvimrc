@@ -29,6 +29,10 @@ require("nvim-treesitter.configs").setup(
                 scope_incremental = "<TAB>"
             }
         },
+        -- 缩进
+        indent = {
+            enable = false
+        },
         -- 彩虹括号，由 nvim-ts-rainbow 插件提供
         rainbow = {
             enable = true,

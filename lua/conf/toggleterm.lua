@@ -7,7 +7,7 @@ Toggleterm.setup(
         --  开启的终端默认进入插入模式
         start_in_insert = false,
         -- 设置终端打开的大小
-        size = 10
+        size = 6
     }
 )
 
@@ -18,7 +18,7 @@ local function inInsert()
     -- 进入插入模式
     vim.cmd("startinsert")
     -- 删除 Esc 的映射
-    vim.cmd(":tunmap <Esc>")
+    vim.keybinds.dgmap("t", "<Esc>")
 end
 
 -- 新建浮动终端
