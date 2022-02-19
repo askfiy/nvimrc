@@ -5,13 +5,8 @@
 
 local dap = require("dap")
 
--- 设置高亮组
-vim.cmd([[
-highlight default DapDebug guifg=#ff0000
-]])
-
 -- 设置断点样式
-vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "DapDebug", linehl = "", numhl = ""})
+vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "TodoFgFIX", linehl = "", numhl = ""})
 
 -- 加载调试器配置
 local dap_config = {

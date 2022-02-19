@@ -447,6 +447,7 @@ packer.startup(
                     require("conf.lsp-colors")
                 end
             }
+
         end,
         -- 使用浮动窗口
         config = {

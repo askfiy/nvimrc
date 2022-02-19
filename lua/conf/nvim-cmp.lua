@@ -21,7 +21,6 @@ local lspkind = require("lspkind")
 
 local cmp = require("cmp")
 
-
 cmp.setup(
     ---@diagnostic disable-next-line: redundant-parameter
     {
@@ -128,7 +127,6 @@ cmp.setup.cmdline(
         }
     }
 )
-
 
 -- 命令行 : 模式提示
 cmp.setup.cmdline(
