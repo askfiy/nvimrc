@@ -2,11 +2,23 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 -- https://github.com/SmiteshP/nvim-gps
 
-
 local gps = require("nvim-gps")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
 require("nvim-gps").setup()
+
+local function file_osinfo()
+    local os = vim.bo.fileformat:upper()
+    local icon
+    if os == "UNIX" then
+        icon = " "
+    elseif os == "MAC" then
+        icon = " "
+    else
+        icon = " "
+    end
+    return icon .. os
+end
 
 local components = {
     active = {},
@@ -15,19 +27,26 @@ local components = {
 
 components.active[1] = {
     {
-        provider = "▊ ",
-        hl = {
-            fg = "skyblue"
-        }
-    },
-    {
-        provider = "vi_mode",
+        provider = " ",
         hl = function()
             return {
-                name = vi_mode_utils.get_mode_highlight_name(),
-                fg = vi_mode_utils.get_mode_color(),
+                bg = "skyblue",
                 style = "bold"
             }
+        end
+    },
+    {
+        provider = " " .. file_osinfo() .. " ",
+        hl = function()
+            if vi_mode_utils.get_vim_mode() == "NORMAL" then
+                return {
+                    fg = "white"
+                }
+            else
+                return {
+                    fg = vi_mode_utils.get_mode_color()
+                }
+            end
         end
     },
     {
@@ -38,12 +57,10 @@ components.active[1] = {
             style = "bold"
         },
         left_sep = {
-            "slant_left_2",
             {str = " ", hl = {bg = "oceanblue", fg = "NONE"}}
         },
         right_sep = {
             {str = " ", hl = {bg = "oceanblue", fg = "NONE"}},
-            "slant_right_2",
             " "
         }
     },
@@ -106,7 +123,7 @@ components.active[2] = {
         hl = {fg = "skyblue"}
     },
     {
-        provider = " ",
+        provider = " "
     },
     {
         provider = "git_branch",

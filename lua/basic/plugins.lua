@@ -274,7 +274,7 @@ packer.startup(
 
             -- 包裹修改
             use {
-                "blackCauldron7/surround.nvim",
+                "ur4ltz/surround.nvim",
                 config = function()
                     require("conf.surround")
                 end
@@ -447,7 +447,6 @@ packer.startup(
                     require("conf.lsp-colors")
                 end
             }
-
         end,
         -- 使用浮动窗口
         config = {

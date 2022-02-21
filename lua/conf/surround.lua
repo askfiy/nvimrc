@@ -1,4 +1,4 @@
--- https://github.com/blackCauldron7/surround.nvim
+-- https://github.com/ur4ltz/surround.nvim
 
 require("surround").setup(
     {
