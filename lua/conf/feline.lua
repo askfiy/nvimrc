@@ -7,19 +7,6 @@ local vi_mode_utils = require("feline.providers.vi_mode")
 
 require("nvim-gps").setup()
 
-local function file_osinfo()
-    local os = vim.bo.fileformat:upper()
-    local icon
-    if os == "UNIX" then
-        icon = " "
-    elseif os == "MAC" then
-        icon = " "
-    else
-        icon = " "
-    end
-    return icon .. os
-end
-
 local components = {
     active = {},
     inactive = {}
@@ -36,7 +23,7 @@ components.active[1] = {
         end
     },
     {
-        provider = " " .. file_osinfo() .. " ",
+        provider = " " .. vim.g.platform_icon .. vim.g.platform_info .. " ",
         hl = function()
             if vi_mode_utils.get_vim_mode() == "NORMAL" then
                 return {

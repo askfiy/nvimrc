@@ -50,3 +50,14 @@ vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybind
 vim.keybinds.gmap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", vim.keybinds.ns_opt)
 -- 关闭左右两侧缓冲区
 vim.keybinds.gmap("n", "<leader>bo", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>", vim.keybinds.ns_opt)
+
+-- 快速到某个 buffer
+vim.keybinds.gmap("n", "<leader>b1", "<cmd>BufferLineGoToBuffer 1<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b2", "<cmd>BufferLineGoToBuffer 2<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b3", "<cmd>BufferLineGoToBuffer 3<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b4", "<cmd>BufferLineGoToBuffer 4<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b5", "<cmd>BufferLineGoToBuffer 5<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b6", "<cmd>BufferLineGoToBuffer 6<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b7", "<cmd>BufferLineGoToBuffer 7<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b8", "<cmd>BufferLineGoToBuffer 8<CR>", vim.keybinds.ns_opt)
+vim.keybinds.gmap("n", "<leader>b9", "<cmd>BufferLineGoToBuffer 9<CR>", vim.keybinds.ns_opt)

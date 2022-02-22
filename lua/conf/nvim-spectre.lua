@@ -45,3 +45,5 @@ require("spectre").setup(
 vim.keybinds.gmap("n", "<leader>rp", "<cmd>lua require('spectre').open()<CR>", vim.keybinds.ns_opt)
 -- 只替换当前文件（文档范围取决于 getcwd() 的返回值）
 vim.keybinds.gmap("n", "<leader>rf", "viw:lua require('spectre').open_file_search()<CR>", vim.keybinds.ns_opt)
+-- 全项目中搜索当前单词
+vim.keybinds.gmap("n", "<leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", vim.keybinds.ns_opt)

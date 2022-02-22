@@ -177,7 +177,8 @@ packer.startup(
                 "rcarriga/nvim-notify",
                 config = function()
                     require("conf.nvim-notify")
-                end
+                end,
+                event = "BufEnter"
             }
 
             ------------- 常见工具 -------------
@@ -412,7 +413,7 @@ packer.startup(
             use {
                 "terryma/vim-multiple-cursors",
                 config = function()
-                    require("conf.nvim-multiple-cursors")
+                    require("conf.vim-multiple-cursors")
                 end
             }
 
@@ -432,7 +433,7 @@ packer.startup(
                 end
             }
 
-            -- 自动恢复到光标位置
+            -- 自动恢复光标位置
             use {
                 "ethanholz/nvim-lastplace",
                 config = function()
