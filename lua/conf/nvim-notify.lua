@@ -21,4 +21,4 @@ vim.notify.setup(
 -- vim.notify("hi world", "info", {title = "test"})
 
 -- 显示历史记录
-vim.keybinds.gmap("n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.ns_opt)

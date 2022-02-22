@@ -2,6 +2,4 @@
 
 vim.g.copilot_no_tab_map = true
 
-local opts = {silent = true, expr = true}
-
-vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", opts)
+vim.keybinds.gmap("i", "<C-l>", "copilot#Accept('')", vim.keybinds.se_opt)

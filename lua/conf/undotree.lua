@@ -14,4 +14,4 @@ if has("persistent_undo")
 )
 
 -- 按键绑定
-vim.keybinds.gmap("n", "<leader>3", ":UndotreeToggle<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>3", ":UndotreeToggle<CR>", vim.keybinds.ns_opt)

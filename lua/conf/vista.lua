@@ -15,4 +15,4 @@ let g:vista#renderer#icons = {
 ]]
 )
 
-vim.keybinds.gmap("n", "<leader>2", "<cmd>Vista!!<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<leader>2", "<cmd>Vista!!<CR>", vim.keybinds.ns_opt)
