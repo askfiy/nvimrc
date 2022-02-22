@@ -13,5 +13,5 @@ require("auto-session").setup(
 )
 
 vim.cmd([[
-    autocmd VimLeavePre * silent! lua require('auto-session').save()
+    autocmd VimLeavePre * silent! :SaveSession
 ]])
