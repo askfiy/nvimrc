@@ -11,3 +11,7 @@ require("auto-session").setup(
         pre_save_cmds = {"tabdo NvimTreeClose"}
     }
 )
+
+vim.cmd([[
+    autocmd VimLeavePre * silent! lua require('auto-session').save()
+]])
