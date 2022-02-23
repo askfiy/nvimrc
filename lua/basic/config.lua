@@ -26,6 +26,13 @@ local platform_snippet = {
     WINDOWS = "C:\\Users\\%USERNAME%\\AppData\\Local\\nvim\\snippet"
 }
 
+-- 获取平台 lint 配置文件路径
+local platform_lint = {
+    MAC = "~/.config/nvim/lint",
+    UNIX = "~/.config/nvim/lint",
+    WINDOWS = "C:\\Users\\%USERNAME%\\AppData\\Local\\nvim\\lint"
+}
+
 -- 获取平台信息
 vim.g.platform_info = vim.bo.fileformat:upper()
 -- 获取平台图标
@@ -36,6 +43,8 @@ vim.g.python_path = platform_python[vim.g.platform_info]
 vim.g.vsnip_snippet_dir = platform_snippet[vim.g.platform_info]
 -- 指定 undotree 缓存存放路径
 vim.g.undotree_dir = platform_undotree[vim.g.platform_info]
+-- 指定 lint 配置文件路径
+vim.g.lint_config_path = platform_lint[vim.g.platform_info]
 
 -- 指定 translate 代理服务器
 vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"

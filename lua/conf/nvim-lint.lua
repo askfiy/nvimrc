@@ -1,6 +1,6 @@
 -- https://github.com/mfussenegger/nvim-lint
 
--- WARN: nvim-lint 手动下载诊断工具
+-- WARN: nvim-lint 手动下载诊断工具，确保工具在 $PATH 下
 -- pip3 install pylint
 
 require("lint").linters_by_ft = {
