@@ -25,9 +25,18 @@ components.active[1] = {
     {
         provider = " " .. vim.g.platform_icon .. vim.g.platform_info .. " ",
         hl = function()
-            if vi_mode_utils.get_vim_mode() == "NORMAL" then
+            local mode = vi_mode_utils.get_vim_mode()
+            if mode == "NORMAL" then
                 return {
                     fg = "white"
+                }
+            elseif mode == "INSERT" then
+                return {
+                    fg = "green"
+                }
+            elseif mode == "VISUAL" then
+                return {
+                    fg = "skyblue"
                 }
             else
                 return {
@@ -86,6 +95,11 @@ components.active[1] = {
         enabled = function()
             return gps.is_available()
         end,
+        -- 第一个隐藏的组件
+        -- 组件隐藏后显示的短提示
+        short_provider = "",
+        -- 组件隐藏优先级
+        priority = -10,
         left_sep = {
             {str = " ", hl = {bg = "bg", fg = "NONE"}}
         }
