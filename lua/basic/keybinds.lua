@@ -32,3 +32,5 @@ vim.keybinds.gmap("n", "<C-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.n
 vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.ns_opt)
 
 vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.ns_opt)
+
+vim.keybinds.gmap("n", "\\\\", "<cmd>qa<CR>", vim.keybinds.ns_opt)

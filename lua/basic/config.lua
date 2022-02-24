@@ -59,4 +59,6 @@ vim.g.FcitxToggleInput = function()
     end
 end
 
+
 vim.cmd("autocmd InsertLeave * call FcitxToggleInput()")
+

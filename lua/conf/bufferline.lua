@@ -61,3 +61,5 @@ vim.keybinds.gmap("n", "<leader>b6", "<cmd>BufferLineGoToBuffer 6<CR>", vim.keyb
 vim.keybinds.gmap("n", "<leader>b7", "<cmd>BufferLineGoToBuffer 7<CR>", vim.keybinds.ns_opt)
 vim.keybinds.gmap("n", "<leader>b8", "<cmd>BufferLineGoToBuffer 8<CR>", vim.keybinds.ns_opt)
 vim.keybinds.gmap("n", "<leader>b9", "<cmd>BufferLineGoToBuffer 9<CR>", vim.keybinds.ns_opt)
+
+vim.keybinds.gmap("n", "<leader>bt", "<cmd>BufferLinePick<CR>", vim.keybinds.ns_opt)

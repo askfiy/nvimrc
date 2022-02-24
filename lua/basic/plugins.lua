@@ -7,7 +7,10 @@ packer.startup(
         function()
             use {
                 -- 包管理器
-                "wbthomason/packer.nvim"
+                "wbthomason/packer.nvim",
+                config = function()
+                    -- 所有插件加载完成后运行的代码
+                end
             }
 
             ------------- LSP & DAP -------------

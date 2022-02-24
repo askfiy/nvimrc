@@ -33,7 +33,7 @@ require("catppuccin").setup(
                 enabled = true,
                 show_root = false,
                 -- 透明背景
-                transparent_panel = vim.g.background_transparency,
+                transparent_panel = vim.g.background_transparency
             },
             native_lsp = {
                 enabled = true,
@@ -59,20 +59,23 @@ require("catppuccin").setup(
 -- 应用主题
 vim.cmd([[colorscheme catppuccin]])
 
+-- 自定义高亮组
+vim.cmd([[
+ highlight Lspsaga guifg=#96CDF8
+]])
+
 -- 高亮组风格统一
 vim.cmd(
     [[
 " 重命名边框
-highlight link LspSagaRenameBorder FloatBorder
+highlight link LspSagaRenameBorder Lspsaga
 " 悬浮文档边框
-highlight link LspSagaHoverBorder FloatBorder
+highlight link LspSagaHoverBorder Lspsaga
 " 悬浮文档分割线
-highlight link LspSagaDocTruncateLine FloatBorder
+highlight link LspSagaDocTruncateLine Lspsaga
 " 代码诊断边框
-highlight link LspSagaDiagnosticBorder FloatBorder
+highlight link LspSagaDiagnosticBorder Lspsaga
 " 代码诊断分割线
-highlight link LspSagaDiagnosticTruncateLine FloatBorder
-" 函数签名背景和文字
-highlight NormalFloat guifg=#D9E0EE guibg=#1E1E2E
+highlight link LspSagaDiagnosticTruncateLine Lspsaga
 ]]
 )

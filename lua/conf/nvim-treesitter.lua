@@ -31,7 +31,7 @@ require("nvim-treesitter.configs").setup(
         },
         -- 缩进
         indent = {
-            enable = false
+            enable = false,
         },
         -- 彩虹括号，由 nvim-ts-rainbow 插件提供
         rainbow = {
