@@ -33,6 +33,13 @@ local platform_lint = {
     WINDOWS = "C:\\Users\\%USERNAME%\\AppData\\Local\\nvim\\lint"
 }
 
+-- 获取平台代码截图存储路径
+local platform_screenshot = {
+    MAC = "~/Pictures/screenshot",
+    UNIX = "~/Pictures/screenshot",
+    WINDOWS = "C:\\Users\\%USERNAME%\\Pictures\\screenshot"
+}
+
 -- 获取平台信息
 vim.g.platform_info = vim.bo.fileformat:upper()
 -- 获取平台图标
@@ -45,6 +52,8 @@ vim.g.vsnip_snippet_dir = platform_snippet[vim.g.platform_info]
 vim.g.undotree_dir = platform_undotree[vim.g.platform_info]
 -- 指定 lint 配置文件路径
 vim.g.lint_config_path = platform_lint[vim.g.platform_info]
+-- 指定截图存储路径
+vim.g.screenshot_save_path = platform_screenshot[vim.g.platform_info]
 
 -- 指定 translate 代理服务器
 vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
@@ -59,6 +68,4 @@ vim.g.FcitxToggleInput = function()
     end
 end
 
-
 vim.cmd("autocmd InsertLeave * call FcitxToggleInput()")
-

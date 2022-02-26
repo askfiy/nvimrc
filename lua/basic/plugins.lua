@@ -13,6 +13,69 @@ packer.startup(
                 end
             }
 
+            ------------- 功能增强 -------------
+
+            use {
+                -- 中文文档
+                "yianwillis/vimcdoc"
+            }
+
+            -- 显示滚动条
+            use {
+                "petertriho/nvim-scrollbar",
+                config = function()
+                    require("conf.nvim-scrollbar")
+                end
+            }
+
+            -- 内置终端
+            use {
+                "akinsho/toggleterm.nvim",
+                config = function()
+                    require("conf.toggleterm")
+                end
+            }
+
+            -- 多光标模式
+            use {
+                "terryma/vim-multiple-cursors",
+                config = function()
+                    require("conf.vim-multiple-cursors")
+                end
+            }
+
+            -- 自动保存
+            use {
+                "Pocco81/AutoSave.nvim",
+                config = function()
+                    require("conf.AutoSave")
+                end
+            }
+
+            -- 自动会话管理
+            use {
+                "rmagatti/auto-session",
+                config = function()
+                    require("conf.auto-session")
+                end
+            }
+
+            -- 自动恢复光标位置
+            use {
+                "ethanholz/nvim-lastplace",
+                config = function()
+                    require("conf.nvim-lastplace")
+                end
+            }
+
+            -- 为不支持 LSP 高亮的主题提供默认高亮方案
+            use {
+                "folke/lsp-colors.nvim",
+                config = function()
+                    require("conf.lsp-colors")
+                end
+            }
+
             ------------- LSP & DAP -------------
 
             -- LSP 基础服务
@@ -389,66 +452,11 @@ packer.startup(
                 end
             }
 
-            ------------- 功能增强 -------------
-
+            -- 代码长截图
             use {
-                -- 中文文档
-                "yianwillis/vimcdoc"
-            }
-
-            -- 显示滚动条
-            use {
-                "petertriho/nvim-scrollbar",
+                "kristijanhusak/vim-carbon-now-sh",
                 config = function()
-                    require("conf.nvim-scrollbar")
-                end
-            }
-
-            -- 内置终端
-            use {
-                "akinsho/toggleterm.nvim",
-                config = function()
-                    require("conf.toggleterm")
-                end
-            }
-
-            -- 多光标模式
-            use {
-                "terryma/vim-multiple-cursors",
-                config = function()
-                    require("conf.vim-multiple-cursors")
-                end
-            }
-
-            -- 自动保存
-            use {
-                "Pocco81/AutoSave.nvim",
-                config = function()
-                    require("conf.AutoSave")
-                end
-            }
-
-            -- 自动会话管理
-            use {
-                "rmagatti/auto-session",
-                config = function()
-                    require("conf.auto-session")
-                end
-            }
-
-            -- 自动恢复光标位置
-            use {
-                "ethanholz/nvim-lastplace",
-                config = function()
-                    require("conf.nvim-lastplace")
-                end
-            }
-
-            -- 为不支持 LSP 高亮的主题提供默认高亮方案
-            use {
-                "folke/lsp-colors.nvim",
-                config = function()
-                    require("conf.lsp-colors")
+                    require("conf.vim-carbon-now-sh")
                 end
             }
         end,
