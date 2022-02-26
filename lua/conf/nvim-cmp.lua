@@ -74,9 +74,11 @@ cmp.setup(
         -- 绑定补全相关的按键
         mapping = {
             -- 上一个（只有在确认时才选择补全）
-            ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior}),
+            -- ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior}),
+            ["<C-p>"] = cmp.mapping.select_prev_item(),
             -- 下一个（只有在确认时才选择补全）
-            ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior}),
+            -- ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior}),
+            ["<C-n>"] = cmp.mapping.select_next_item(),
             -- 选择补全
             ["<CR>"] = cmp.mapping.confirm(),
             --  出现或关闭补全
