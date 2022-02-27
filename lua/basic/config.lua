@@ -58,7 +58,7 @@ vim.g.screenshot_save_path = platform_screenshot[vim.g.platform_info]
 -- 指定 translate 代理服务器
 vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
 -- 是否开启透明背景
-vim.g.background_transparency = false
+vim.g.background_transparency = true
 
 -- 自动切换输入法（Fcitx 框架）
 vim.g.FcitxToggleInput = function()
