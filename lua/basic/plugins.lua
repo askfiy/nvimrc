@@ -459,6 +459,19 @@ packer.startup(
                     require("conf.vim-carbon-now-sh")
                 end
             }
+
+            -- 优化启动速度
+            use {
+                "lewis6991/impatient.nvim",
+                config = function()
+                    require("conf.impatient")
+                end
+            }
+
+            -- 查询启动时间
+            use {
+                "dstein64/vim-startuptime"
+            }
         end,
         -- 使用浮动窗口
         config = {
