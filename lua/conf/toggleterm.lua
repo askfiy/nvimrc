@@ -84,10 +84,10 @@ Toggleterm.lazygit_toggle = function()
     lazyGit:toggle()
 end
 
-vim.u.keymap.register_key("toggleterm")
 
 -- 要需创建多个终端，可：
 -- 1 <键位>
 -- 2 <键位>
 -- ... <键位>
 -- 另外，上面我们新建了 2 个特殊终端，所以普通终端的顺序应该是从 3 开始
+vim.u.keymap.register_key("toggleterm")

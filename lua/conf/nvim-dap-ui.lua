@@ -26,4 +26,5 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dap.repl.close()
 end
 
+
 vim.u.keymap.register_key("nvim-dap-ui")

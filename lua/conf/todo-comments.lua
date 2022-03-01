@@ -18,5 +18,5 @@ require("todo-comments").setup(
     }
 )
 
-vim.u.keymap.register_key("todo-comments")
 
+vim.u.keymap.register_key("todo-comments")

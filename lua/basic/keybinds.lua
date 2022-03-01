@@ -9,8 +9,8 @@ vim.u.keymap = {
     se_opt = {silent = true, expr = true}
 }
 
-vim.u.keymap.register_key = function(keyname)
-    local vim_api_set = vim.u.keymap[keyname].vim_api_set
+vim.u.keymap.register_key = function(plug_name)
+    local vim_api_set = vim.u.keymap[plug_name].vim_api_set
     for _, value in ipairs(vim_api_set) do
         vim.u.keymap.gset(value[1], value[2], value[3], vim.u.keymap[value[4]])
     end

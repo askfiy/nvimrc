@@ -38,5 +38,4 @@ require("bufferline").setup(
     }
 )
 
--- 绑定键位
 vim.u.keymap.register_key("bufferline")

@@ -4,433 +4,416 @@
 local install_plugins = {
     {
         -- 包管理器
-        "wbthomason/packer.nvim"
+        "wbthomason/packer.nvim",
+        event = "VimEnter"
     },
     {
-        -- 中文文档
-        "yianwillis/vimcdoc"
+        -- 优化启动速度
+        "lewis6991/impatient.nvim",
+        load_file = true,
+        event = "VimEnter"
     },
     {
         -- 图标支持
-        "kyazdani42/nvim-web-devicons"
+        "kyazdani42/nvim-web-devicons",
+        event = "BufEnter"
+    },
+    {
+        -- 中文文档
+        "yianwillis/vimcdoc",
+        event = "BufEnter"
     },
     {
         -- Lua 依赖
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
+        event = "BufEnter"
     },
     {
-        -- 文字查找
-        "BurntSushi/ripgrep"
+        -- 字符查找
+        "BurntSushi/ripgrep",
+        event = "BufEnter"
     },
     {
         -- 文件查找
-        "sharkdp/fd"
+        "sharkdp/fd",
+        event = "BufEnter"
     },
     {
-        -- 显示滚动条
-        "petertriho/nvim-scrollbar",
-        config = function()
-            require("conf.nvim-scrollbar")
-        end
-    },
-    {
-        -- 内置终端
-        "akinsho/toggleterm.nvim",
-        config = function()
-            require("conf.toggleterm")
-        end
-    },
-    {
-        -- 多光标模式
-        "terryma/vim-multiple-cursors",
-        config = function()
-            require("conf.vim-multiple-cursors")
-        end
-    },
-    {
-        -- 自动保存
-        "Pocco81/AutoSave.nvim",
-        config = function()
-            require("conf.AutoSave")
-        end
-    },
-    {
-        -- 自动会话管理
-        "rmagatti/auto-session",
-        config = function()
-            require("conf.auto-session")
-        end
-    },
-    {
-        -- 自动恢复光标位置
-        "ethanholz/nvim-lastplace",
-        config = function()
-            require("conf.nvim-lastplace")
-        end
-    },
-    {
-        -- 为不支持 LSP 高亮的主题提供默认高亮方案
-        "folke/lsp-colors.nvim",
-        config = function()
-            require("conf.lsp-colors")
-        end
-    },
-    {
-        -- LSP 基础服务
+        -- LSP 基础插件
         "neovim/nvim-lspconfig",
-        config = function()
-            require("conf.nvim-lspconfig")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
-        -- 自动安装 LSP
+        -- 替换内置 omnifunc，获得更多补全
+        "hrsh7th/cmp-nvim-lsp",
+        after = "nvim-lspconfig"
+    },
+    {
+        -- 自动下载 LSP 服务
         "williamboman/nvim-lsp-installer",
-        config = function()
-            require("conf.nvim-lsp-installer")
-        end
+        load_file = true,
+        after = "cmp-nvim-lsp"
     },
     {
         -- LSP 进度提示
         "j-hui/fidget.nvim",
-        config = function()
-            require("conf.fidget")
-        end
+        load_file = true,
+        after = "nvim-lsp-installer"
     },
     {
         -- LSP UI 美化
         "tami5/lspsaga.nvim",
-        config = function()
-            require("conf.lspsaga")
-        end
+        load_file = true,
+        after = "nvim-lsp-installer"
     },
     {
         -- 扩展 LSP 诊断
         "mfussenegger/nvim-lint",
-        config = function()
-            require("conf.nvim-lint")
-        end
+        load_file = true,
+        after = "nvim-lsp-installer"
     },
     {
         -- 灯泡提示代码行为
         "kosayoda/nvim-lightbulb",
-        config = function()
-            require("conf.nvim-lightbulb")
-        end
+        load_file = true,
+        after = "nvim-lsp-installer"
     },
     {
         -- 插入模式获得函数签名
         "ray-x/lsp_signature.nvim",
-        config = function()
-            require("conf.lsp_signature")
-        end
-    },
-    {
-        -- 代码补全
-        "hrsh7th/nvim-cmp",
-        config = function()
-            require("conf.nvim-cmp")
-        end
-    },
-    {
-        -- 为补全添加类似 vscode 的图标
-        "onsails/lspkind-nvim"
-    },
-    {
-        -- vsnip 引擎，用于获得代码片段支持
-        "hrsh7th/vim-vsnip"
-    },
-    {
-        -- 适用于 vsnip 的代码片段源
-        "hrsh7th/cmp-vsnip"
-    },
-    {
-        -- 替换内置 omnifunc，获得更多补全
-        "hrsh7th/cmp-nvim-lsp"
-    },
-    {
-        -- 路径补全
-        "hrsh7th/cmp-path"
-    },
-    {
-        -- 缓冲区补全
-        "hrsh7th/cmp-buffer"
-    },
-    {
-        -- 命令补全
-        "hrsh7th/cmp-cmdline"
-    },
-    {
-        -- 拼写建议
-        "f3fora/cmp-spell"
-    },
-    {
-        -- 提供多种语言的代码片段
-        "rafamadriz/friendly-snippets"
-    },
-    {
-        -- 让补全结果的排序更加智能
-        "lukas-reineke/cmp-under-comparator"
-    },
-    {
-        -- tabnine 源,提供基于 AI 的智能补全
-        "tzachar/cmp-tabnine",
-        run = "./install.sh"
+        load_file = true,
+        after = "nvim-lsp-installer"
     },
     {
         -- git copilot 自动补全
         "github/copilot.vim",
-        config = function()
-            require("conf.copilot")
-        end
+        load_file = true,
+        event = "InsertCharPre"
+    },
+    {
+        -- 为补全添加类似 vscode 的图标
+        "onsails/lspkind-nvim",
+        after = "fidget.nvim"
+    },
+    {
+        -- 代码补全
+        "hrsh7th/nvim-cmp",
+        load_file = true,
+        event = "InsertCharPre",
+        after = "lspkind-nvim"
+    },
+    {
+        -- vsnip 引擎，用于获得代码片段支持
+        "hrsh7th/vim-vsnip",
+        after = "nvim-cmp"
+    },
+    {
+        -- 适用于 vsnip 的代码片段源
+        "hrsh7th/cmp-vsnip",
+        after = "nvim-cmp"
+    },
+    {
+        -- 路径补全
+        "hrsh7th/cmp-path",
+        after = "nvim-cmp"
+    },
+    {
+        -- 缓冲区补全
+        "hrsh7th/cmp-buffer",
+        after = "nvim-cmp"
+    },
+    {
+        -- 命令补全
+        "hrsh7th/cmp-cmdline",
+        after = "nvim-cmp"
+    },
+    {
+        -- 拼写建议
+        "f3fora/cmp-spell",
+        after = "nvim-cmp"
+    },
+    {
+        -- 提供多种语言的代码片段
+        "rafamadriz/friendly-snippets",
+        after = "nvim-cmp"
+    },
+    {
+        -- tabnine 源,提供基于 AI 的智能补全
+        "tzachar/cmp-tabnine",
+        run = "./install.sh",
+        after = "nvim-cmp"
     },
     {
         -- 代码调试基础插件
         "mfussenegger/nvim-dap",
-        config = function()
-            require("conf.nvim-dap")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 为代码调试提供内联文本
         "theHamsta/nvim-dap-virtual-text",
-        config = function()
-            require("conf.nvim-dap-virtual-text")
-        end
+        load_file = true,
+        after = "nvim-dap"
     },
     {
         -- 为代码调试提供 UI 界面
         "rcarriga/nvim-dap-ui",
-        config = function()
-            require("conf.nvim-dap-ui")
-        end
+        load_file = true,
+        after = "nvim-dap"
     },
     {
         -- 优秀的暗色主题
         "catppuccin/nvim",
         as = "catppuccin",
-        config = function()
-            require("conf.catppuccin")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 删除 buffer 时不影响现有布局
-        "famiu/bufdelete.nvim"
+        "famiu/bufdelete.nvim",
+        event = "BufEnter"
     },
     {
         -- 支持 LSP 状态的 buffer 栏
         "akinsho/bufferline.nvim",
-        config = function()
-            require("conf.bufferline")
-        end
+        load_file = true,
+        after = {"bufdelete.nvim", "nvim-web-devicons"}
     },
     {
         -- 为状态栏提供上下文信息
-        "SmiteshP/nvim-gps"
-    },
-    {
-        -- 轻量级的状态栏插件
-        "feline-nvim/feline.nvim",
-        config = function()
-            require("conf.feline")
-        end
+        "SmiteshP/nvim-gps",
+        event = "BufEnter"
     },
     {
         -- git 插件
         "lewis6991/gitsigns.nvim",
-        config = function()
-            require("conf.gitsigns")
-        end
+        load_file = true,
+        after = {
+            "nvim-treesitter",
+            "plenary.nvim"
+        }
+    },
+    {
+        -- 轻量级的状态栏插件
+        "feline-nvim/feline.nvim",
+        load_file = true,
+        after = {"nvim-gps", "gitsigns.nvim", "nvim-web-devicons"}
     },
     {
         -- 精美弹窗
         "rcarriga/nvim-notify",
-        config = function()
-            require("conf.nvim-notify")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 文件树
         "kyazdani42/nvim-tree.lua",
-        config = function()
-            require("conf.nvim-tree")
-        end
+        load_file = true,
+        after = "nvim-web-devicons"
     },
     {
         -- todo tree
         "folke/todo-comments.nvim",
-        config = function()
-            require("conf.todo-comments")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- undo tree
         "mbbill/undotree",
-        config = function()
-            require("conf.undotree")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- view tree
         "liuchengxu/vista.vim",
-        config = function()
-            require("conf.vista")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 模糊查找
         "nvim-telescope/telescope.nvim",
-        config = function()
-            require("conf.telescope")
-        end
+        load_file = true,
+        after = {"ripgrep", "plenary.nvim"}
     },
     {
         -- 全局替换
         "nvim-pack/nvim-spectre",
-        config = function()
-            require("conf.nvim-spectre")
-        end
-    },
-    ---- 代码编辑
-    -- 语法高亮
-    {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSupdate",
-        config = function()
-            require("conf.nvim-treesitter")
-        end
+        load_file = true,
+        after = {"ripgrep", "plenary.nvim"}
     },
     {
         -- 彩虹括号
-        "p00f/nvim-ts-rainbow"
+        "p00f/nvim-ts-rainbow",
+        event = "BufEnter"
     },
     {
-        -- 代码注释插件
-        "JoosepAlviste/nvim-ts-context-commentstring"
+        -- 注释依赖
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        event = "BufEnter"
     },
     {
+        -- 语法高亮
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSupdate",
+        load_file = true,
+        after = {
+            "nvim-ts-rainbow",
+            "nvim-ts-context-commentstring"
+        }
+    },
+    {
+        -- 代码注释
         "numToStr/Comment.nvim",
-        config = function()
-            require("conf.Comment")
-        end
+        load_file = true,
+        after = "nvim-ts-context-commentstring"
     },
     {
         -- 代码格式化
         "sbdchd/neoformat",
-        config = function()
-            require("conf.neoformat")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 自动匹配括号
         "windwp/nvim-autopairs",
-        config = function()
-            require("conf.nvim-autopairs")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 包裹修改
         "ur4ltz/surround.nvim",
-        config = function()
-            require("conf.surround")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 快速更改单词
         "AndrewRadev/switch.vim",
-        config = function()
-            require("conf.switch")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
-    --- 语言工具
     {
         -- markdown 预览
         "davidgranstrom/nvim-markdown-preview",
-        config = function()
-            require("conf.nvim-markdown-preview")
-        end
+        load_file = true,
+        ft = "markdown"
     },
     {
         -- Python 缩进
-        "Vimjas/vim-python-pep8-indent"
+        "Vimjas/vim-python-pep8-indent",
+        ft = "python"
     },
     {
         -- emmet 缩写
-        "mattn/emmet-vim"
-    },
-    ------------- 编辑体验 -------------
-    {
-        -- 显示网页色
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("conf.nvim-colorizer")
-        end
-    },
-    {
-        -- 显示缩进线
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("conf.indent-blankline")
-        end
+        "mattn/emmet-vim",
+        ft = {
+            "html",
+            "javascript",
+            "typescript",
+            "vue",
+            "xml"
+        }
     },
     {
-        -- 显示光标下相同词汇
-        "RRethy/vim-illuminate",
-        config = function()
-            require("conf.vim-illuminate")
-        end
+        -- 显示滚动条
+        "petertriho/nvim-scrollbar",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 内置终端
+        "akinsho/toggleterm.nvim",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 多光标模式
+        "terryma/vim-multiple-cursors",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 自动保存
+        "Pocco81/AutoSave.nvim",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 自动会话管理
+        "rmagatti/auto-session",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 自动恢复光标位置
+        "ethanholz/nvim-lastplace",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 为不支持 LSP 高亮的主题提供默认高亮方案
+        "folke/lsp-colors.nvim",
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 搜索时显示条目
         "kevinhwang91/nvim-hlslens",
-        config = function()
-            require("conf.nvim-hlslens")
-        end
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 显示网页色
+        "norcalli/nvim-colorizer.lua",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 显示缩进线
+        "lukas-reineke/indent-blankline.nvim",
+        load_file = true,
+        event = "BufEnter"
+    },
+    {
+        -- 显示光标下相同词汇
+        "RRethy/vim-illuminate",
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 快速跳转
         "phaazon/hop.nvim",
-        config = function()
-            require("conf.hop")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 拼写检查器
         "lewis6991/spellsitter.nvim",
-        config = function()
-            require("conf.spellsitter")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 键位绑定器
         "folke/which-key.nvim",
-        config = function()
-            require("conf.which-key")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 翻译插件
         "voldikss/vim-translator",
-        config = function()
-            require("conf.vim-translator")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 代码长截图
         "kristijanhusak/vim-carbon-now-sh",
-        config = function()
-            require("conf.vim-carbon-now-sh")
-        end
-    },
-    {
-        -- 优化启动速度
-        "lewis6991/impatient.nvim",
-        config = function()
-            require("conf.impatient")
-        end
+        load_file = true,
+        event = "BufEnter"
     },
     {
         -- 查询启动时间
-        "dstein64/vim-startuptime"
+        "dstein64/vim-startuptime",
+        event = "BufEnter"
     }
 }
 
@@ -439,6 +422,15 @@ require("packer").startup(
         function()
             for _, plugin in ipairs(install_plugins) do
                 if not plugin.disable then
+                    if plugin.load_file then
+                        local require_path
+                        if plugin.as then
+                            require_path = "conf" .. "/" .. plugin.as
+                        else
+                            require_path = "conf" .. string.match(plugin[1], "(/[%w-_]+).?")
+                        end
+                        plugin.config = "require('" .. require_path .. "')"
+                    end
                     use(plugin)
                 end
             end
