@@ -1,5 +1,7 @@
 -- https://github.com/tami5/lspsaga.nvim
 
+local plugin_key = vim.u.keymap["lspsaga"].plugin_set
+
 require("lspsaga").setup(
     {
         -- round、single、double
@@ -19,13 +21,7 @@ require("lspsaga").setup(
             sign_priority = 40,
             virtual_text = true
         },
-        code_action_keys = {
-            quit = "<Esc>",
-            exec = "<CR>"
-        },
-        rename_action_keys = {
-            quit = "<Esc>",
-            exec = "<CR>"
-        }
+        code_action_keys = plugin_key.code_action_keys,
+        rename_action_keys = plugin_key.rename_action_keys
     }
 )

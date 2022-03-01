@@ -29,5 +29,4 @@ end
 -- 放入全局变量
 vim.g.switch_custom_definitions = push_words
 
--- 快速取反意单词，如 true 变为 false
-vim.keybinds.gmap("n", "gs", ":Switch<CR>", vim.keybinds.ns_opt)
+vim.u.keymap.register_key("switch")

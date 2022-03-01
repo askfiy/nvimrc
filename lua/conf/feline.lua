@@ -23,7 +23,7 @@ components.active[1] = {
         end
     },
     {
-        provider = " " .. vim.g.platform_icon .. vim.g.platform_info .. " ",
+        provider = " " .. vim.u.platform_icon .. vim.u.platform_info .. " ",
         hl = function()
             local mode = vi_mode_utils.get_vim_mode()
             if mode == "NORMAL" then

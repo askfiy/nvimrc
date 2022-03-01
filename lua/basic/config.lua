@@ -1,3 +1,5 @@
+vim.u = {}
+
 -- 获取平台图标
 local platform_icons = {
     MAC = " ",
@@ -41,24 +43,24 @@ local platform_screenshot = {
 }
 
 -- 获取平台信息
-vim.g.platform_info = vim.bo.fileformat:upper()
+vim.u.platform_info = vim.bo.fileformat:upper()
 -- 获取平台图标
-vim.g.platform_icon = platform_icons[vim.g.platform_info]
+vim.u.platform_icon = platform_icons[vim.u.platform_info]
 -- Python 解释器目录
-vim.g.python_path = platform_python[vim.g.platform_info]
+vim.u.platform_python_path = platform_python[vim.u.platform_info]
 -- 指定代码片段存储路径
-vim.g.vsnip_snippet_dir = platform_snippet[vim.g.platform_info]
+vim.u.platform_snippet_dir = platform_snippet[vim.u.platform_info]
 -- 指定 undotree 缓存存放路径
-vim.g.undotree_dir = platform_undotree[vim.g.platform_info]
+vim.u.platform_undotree_dir = platform_undotree[vim.u.platform_info]
 -- 指定 lint 配置文件路径
-vim.g.lint_config_path = platform_lint[vim.g.platform_info]
+vim.u.platform_lint_config_path = platform_lint[vim.u.platform_info]
 -- 指定截图存储路径
-vim.g.screenshot_save_path = platform_screenshot[vim.g.platform_info]
+vim.u.platform_screenshot_save_path = platform_screenshot[vim.u.platform_info]
 
 -- 指定 translate 代理服务器
-vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
+vim.u.translator_proxy_url = "socks5://127.0.0.1:7890"
 -- 是否开启透明背景
-vim.g.background_transparency = true
+vim.u.background_transparency = true
 
 -- 自动切换输入法（Fcitx 框架）
 vim.g.FcitxToggleInput = function()

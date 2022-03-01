@@ -24,4 +24,4 @@ vim.g.neoformat_only_msg_on_error = 1
 -- augroup END
 -- ]])
 
-vim.keybinds.gmap("n", "<leader>cf", "<cmd>Neoformat<CR>", vim.keybinds.ns_opt)
+vim.u.keymap.register_key("neoformat")

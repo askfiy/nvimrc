@@ -13,7 +13,7 @@ return {
             name = "Launch file",
             program = "${file}",
             pythonPath = function()
-                return vim.g.python_path
+                return vim.u.platform_python_path
             end
         }
     }

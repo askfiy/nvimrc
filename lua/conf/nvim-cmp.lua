@@ -18,8 +18,9 @@
 --    ~/.local/share/nvim/plugged/cmp-tabnine/install.sh
 
 local lspkind = require("lspkind")
-
 local cmp = require("cmp")
+local plugin_key = vim.u.keymap["nvim-cmp"].plugin_set
+vim.g.vsnip_snippet_dir = vim.u.platform_snippet_dir
 
 cmp.setup(
     ---@diagnostic disable-next-line: redundant-parameter
@@ -75,14 +76,14 @@ cmp.setup(
         mapping = {
             -- 上一个（只有在确认时才选择补全）
             -- ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior}),
-            ["<C-p>"] = cmp.mapping.select_prev_item(),
+            [plugin_key.select_prev_item] = cmp.mapping.select_prev_item(),
             -- 下一个（只有在确认时才选择补全）
             -- ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior}),
-            ["<C-n>"] = cmp.mapping.select_next_item(),
+            [plugin_key.select_next_item] = cmp.mapping.select_next_item(),
             -- 选择补全
-            ["<CR>"] = cmp.mapping.confirm(),
+            [plugin_key.confirm_current] = cmp.mapping.confirm(),
             --  出现或关闭补全
-            ["<C-k>"] = cmp.mapping(
+            [plugin_key.toggle_complete] = cmp.mapping(
                 {
                     i = function()
                         if cmp.visible() then
@@ -102,7 +103,7 @@ cmp.setup(
             ),
             -- 类似于 IDEA 的功能，如果没进入选择框，tab
             -- 会选择下一个，如果进入了选择框，tab 会确认当前选择
-            ["<Tab>"] = cmp.mapping(
+            [plugin_key.current_or_next] = cmp.mapping(
                 function(fallback)
                     if cmp.visible() then
                         local entry = cmp.get_selected_entry()

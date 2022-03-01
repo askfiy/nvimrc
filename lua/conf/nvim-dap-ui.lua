@@ -26,5 +26,4 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dap.repl.close()
 end
 
--- 显示或隐藏调试界面
-vim.keybinds.gmap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<CR>", vim.keybinds.ns_opt)
+vim.u.keymap.register_key("nvim-dap-ui")

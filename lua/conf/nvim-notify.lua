@@ -24,11 +24,4 @@ vim.notify.setup(notify_opts)
 -- 级别有：info、warn、error、debug、trace
 -- 示例：
 -- vim.notify("hello world", "info", {title = "info"})
-
--- 显示历史弹窗记录
-vim.keybinds.gmap(
-    "n",
-    "<leader>fn",
-    "<cmd>lua require('telescope').extensions.notify.notify()<CR>",
-    vim.keybinds.ns_opt
-)
+vim.u.keymap.register_key("nvim-notify")

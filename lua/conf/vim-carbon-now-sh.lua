@@ -1,4 +1,4 @@
 -- https://github.com/kristijanhusak/vim-carbon-now-sh
 
-vim.keybinds.gmap("v", "<F1>", ":CarbonNowSh<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<F1>", ":CarbonNowSh<CR>", vim.keybinds.ns_opt)
+vim.g.screenshot_save_path = vim.u.platform_screenshot_save_path
+vim.u.keymap.register_key("vim-carbon-now-sh")

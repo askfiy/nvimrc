@@ -8,13 +8,4 @@
 
 require("telescope").setup()
 
--- 查找文件
-vim.keybinds.gmap("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown<CR>", vim.keybinds.ns_opt)
--- 查找文字
-vim.keybinds.gmap("n", "<leader>fg", "<cmd>Telescope live_grep theme=dropdown<CR>", vim.keybinds.ns_opt)
--- 查找最近打开的文件
-vim.keybinds.gmap("n", "<leader>fo", "<cmd>Telescope oldfiles theme=dropdown<CR>", vim.keybinds.ns_opt)
--- 查找 marks 标记
-vim.keybinds.gmap("n", "<leader>fm", "<cmd>Telescope marks theme=dropdown<CR>", vim.keybinds.ns_opt)
--- 上次运行的命令
-vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope resume theme=dropdown<CR>", vim.keybinds.ns_opt)
+vim.u.keymap.register_key("telescope")

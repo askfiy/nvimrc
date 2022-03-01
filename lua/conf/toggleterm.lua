@@ -1,6 +1,7 @@
 -- https://github.com/akinsho/toggleterm.nvim
 
 local Toggleterm = require("toggleterm")
+local plugin_key = vim.u.keymap["toggleterm"].plugin_set
 
 Toggleterm.setup(
     {
@@ -22,7 +23,7 @@ local function inInsert()
     -- 进入插入模式
     vim.cmd("startinsert")
     -- 删除 Esc 的映射
-    vim.keybinds.dgmap("t", "<Esc>")
+    vim.u.keymap.dgset("t", plugin_key.delete_all_exit)
 end
 
 -- 新建浮动终端
@@ -37,11 +38,17 @@ local floatTerm =
         on_open = function(term)
             inInsert()
             -- 浮动终端中 Esc 是退出
-            vim.keybinds.bmap(term.bufnr, "t", "<Esc>", "<C-\\><C-n>:close<CR>", vim.keybinds.ns_opt)
+            vim.u.keymap.bset(
+                term.bufnr,
+                "t",
+                plugin_key.float.float_exit,
+                "<C-\\><C-n>:close<CR>",
+                vim.u.keymap.ns_opt
+            )
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.ns_opt)
+            vim.u.keymap.gset("t", plugin_key.float.again_exit, "<C-\\><C-n>", vim.u.keymap.ns_opt)
         end
     }
 )
@@ -59,11 +66,11 @@ local lazyGit =
         on_open = function(term)
             inInsert()
             -- lazygit 中 q 是退出
-            vim.keybinds.bmap(term.bufnr, "i", "q", "<cmd>close<CR>", vim.keybinds.ns_opt)
+            vim.u.keymap.bset(term.bufnr, "i", plugin_key.lazygit.lazygit_exit, "<cmd>close<CR>", vim.u.keymap.ns_opt)
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.ns_opt)
+            vim.u.keymap.gset("t", plugin_key.lazygit.again_exit, "<C-\\><C-n>", vim.u.keymap.ns_opt)
         end
     }
 )
@@ -77,16 +84,7 @@ Toggleterm.lazygit_toggle = function()
     lazyGit:toggle()
 end
 
--- 退出终端插入模式
-vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.ns_opt)
--- 打开普通终端
-vim.keybinds.gmap("n", "<leader>tt", "<cmd>exe v:count.'ToggleTerm'<CR>", vim.keybinds.ns_opt)
--- 打开浮动终端
-vim.keybinds.gmap("n", "<leader>tf", "<cmd>lua require('toggleterm').float_toggle()<CR>", vim.keybinds.ns_opt)
--- 打开lazy git 终端
-vim.keybinds.gmap("n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", vim.keybinds.ns_opt)
--- 打开或关闭所有终端
-vim.keybinds.gmap("n", "<leader>ta", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.ns_opt)
+vim.u.keymap.register_key("toggleterm")
 
 -- 要需创建多个终端，可：
 -- 1 <键位>

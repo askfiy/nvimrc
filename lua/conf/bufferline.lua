@@ -38,28 +38,5 @@ require("bufferline").setup(
     }
 )
 
--- 关闭当前 buffer，由 bufdelete 插件所提供的方法
-vim.keybinds.gmap("n", "<C-q>", "<cmd>Bdelete!<CR>", vim.keybinds.ns_opt)
--- 切换上一个缓冲区
-vim.keybinds.gmap("n", "<C-h>", "<cmd>BufferLineCyclePrev<CR>", vim.keybinds.ns_opt)
--- 切换下一个缓冲区
-vim.keybinds.gmap("n", "<C-l>", "<cmd>BufferLineCycleNext<CR>", vim.keybinds.ns_opt)
--- 关闭左侧缓冲区
-vim.keybinds.gmap("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", vim.keybinds.ns_opt)
--- 关闭右侧缓冲区
-vim.keybinds.gmap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", vim.keybinds.ns_opt)
--- 关闭左右两侧缓冲区
-vim.keybinds.gmap("n", "<leader>bo", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>", vim.keybinds.ns_opt)
-
--- 快速到某个 buffer
-vim.keybinds.gmap("n", "<leader>b1", "<cmd>BufferLineGoToBuffer 1<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b2", "<cmd>BufferLineGoToBuffer 2<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b3", "<cmd>BufferLineGoToBuffer 3<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b4", "<cmd>BufferLineGoToBuffer 4<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b5", "<cmd>BufferLineGoToBuffer 5<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b6", "<cmd>BufferLineGoToBuffer 6<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b7", "<cmd>BufferLineGoToBuffer 7<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b8", "<cmd>BufferLineGoToBuffer 8<CR>", vim.keybinds.ns_opt)
-vim.keybinds.gmap("n", "<leader>b9", "<cmd>BufferLineGoToBuffer 9<CR>", vim.keybinds.ns_opt)
-
-vim.keybinds.gmap("n", "<leader>bt", "<cmd>BufferLinePick<CR>", vim.keybinds.ns_opt)
+-- 绑定键位
+vim.u.keymap.register_key("bufferline")

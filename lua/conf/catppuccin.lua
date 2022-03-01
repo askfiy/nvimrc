@@ -3,7 +3,7 @@
 require("catppuccin").setup(
     {
         -- 透明背景
-        transparent_background = vim.g.background_transparency,
+        transparent_background = vim.u.background_transparency,
         -- 使用终端背景色
         term_color = false,
         -- 代码样式
@@ -33,7 +33,7 @@ require("catppuccin").setup(
                 enabled = true,
                 show_root = false,
                 -- 透明背景
-                transparent_panel = vim.g.background_transparency
+                transparent_panel = vim.u.background_transparency
             },
             native_lsp = {
                 enabled = true,

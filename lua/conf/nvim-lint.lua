@@ -14,7 +14,7 @@ require("lint").linters_by_ft = {
 require("lint.linters.pylint").args = {
     "-f",
     "json",
-    "--rcfile=~/.config/nvim/lint/pylint.conf"
+    "--rcfile=" .. vim.u.platform_lint_config_path .. "/pylint.conf"
 }
 
 -- 何时触发检测：
