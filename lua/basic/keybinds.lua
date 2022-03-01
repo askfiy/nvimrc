@@ -204,7 +204,7 @@ vim.u.keymap["nvim-notify"] = {
         {
             "n",
             "<leader>fn",
-            "<cmd>lua require('telescope').extensions.notify.notify()<CR>",
+            "<cmd>lua require('telescope').extensions.notify.notify() theme=dropdown<CR>",
             "ns_opt"
         }
     },

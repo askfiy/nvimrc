@@ -102,6 +102,9 @@ cmp.setup(
                 end,
                 {"i", "s", "c"}
             )
+        },
+        -- 建议排序
+        sorting = {
         }
     }
 )
