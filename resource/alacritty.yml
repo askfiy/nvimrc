@@ -4,7 +4,7 @@ live_config_reload: true
 # 环境变量
 
 env:
-  TERM: xterm-256color
+  TERM: alacritty
 
 # 窗口设置
 window:
@@ -18,7 +18,6 @@ window:
   dimensions:
     columns: 100
     lines: 30
-
 
   # 窗口内边距
   padding:
@@ -41,13 +40,12 @@ window:
   decorations: full
 
   # 窗口透明度
-  opacity: 0.8
+  opacity: 0.6
 
 # 滚动设置
 scrolling:
   # 回滚缓冲区最大保存行数
   history: 10000
-
 
   # 一次回滚几行
   multiplier: 3
@@ -56,7 +54,8 @@ scrolling:
 font:
   # 常规字体
   normal:
-    family: "FiraCode Nerd Font Mono"
+    # family: "FiraCode Nerd Font Mono"
+    family: "agave Nerd Font Mono"
     style: Regular
 
   # 字大小
@@ -65,9 +64,9 @@ font:
   # 字符间距
   offset:
     x: 0
-    y: 0
+    y: 2
 
-  # 细体字渲染
+  # 细体字渲染（仅 mac 生效）
   use_thin_strokes: true
 
   # 高亮渲染粗体字
@@ -85,7 +84,6 @@ selection:
 cursor:
   # 光标样式
   style:
-
     # 光标形状
     shape: Block
 
@@ -108,39 +106,39 @@ mouse:
 colors:
   # Default colors
   primary:
-    background: '0x1E1D2F'
-    foreground: '0xD9E0EE'
+    background: "0x1E1D2F"
+    foreground: "0xD9E0EE"
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1E1D2F'
-    cursor: '0xF5E0DC'
+    text: "0x1E1D2F"
+    cursor: "0xF5E0DC"
 
   # Normal colors
   normal:
-    black:   '0x6E6C7E'
-    red:     '0xF28FAD'
-    green:   '0xABE9B3'
-    yellow:  '0xFAE3B0'
-    blue:    '0x96CDFB'
-    magenta: '0xF5C2E7'
-    cyan:    '0x89DCEB'
-    white:   '0xD9E0EE'
+    black: "0x6E6C7E"
+    red: "0xF28FAD"
+    green: "0xABE9B3"
+    yellow: "0xFAE3B0"
+    blue: "0x96CDFB"
+    magenta: "0xF5C2E7"
+    cyan: "0x89DCEB"
+    white: "0xD9E0EE"
 
   # Bright colors
   bright:
-    black:   '0x988BA2'
-    red:     '0xF28FAD'
-    green:   '0xABE9B3'
-    yellow:  '0xFAE3B0'
-    blue:    '0x96CDFB'
-    magenta: '0xF5C2E7'
-    cyan:    '0x89DCEB'
-    white:   '0xD9E0EE'
+    black: "0x988BA2"
+    red: "0xF28FAD"
+    green: "0xABE9B3"
+    yellow: "0xFAE3B0"
+    blue: "0x96CDFB"
+    magenta: "0xF5C2E7"
+    cyan: "0x89DCEB"
+    white: "0xD9E0EE"
 
   indexed_colors:
-    - { index: 16, color: '0xF8BD96' }
-    - { index: 17, color: '0xF5E0DC' }
+    - { index: 16, color: "0xF8BD96" }
+    - { index: 17, color: "0xF5E0DC" }
 
 # 键绑定
 key_bindings:
