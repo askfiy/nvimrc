@@ -14,5 +14,3 @@ let g:vista#renderer#icons = {
 \  }
 ]]
 )
-
-vim.u.keymap.register_key("vista")

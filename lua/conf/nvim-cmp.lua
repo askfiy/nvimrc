@@ -18,7 +18,7 @@
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")
-local plugin_key = vim.u.keymap["nvim-cmp"].plugin_set
+local plugin_key = vim.u.keymap.binds["nvim-cmp"].plugin_set
 vim.g.vsnip_snippet_dir = vim.u.platform_snippet_dir
 
 cmp.setup(
@@ -96,19 +96,6 @@ cmp.setup(
                 {"i", "s", "c"}
             )
         },
-        sorting = {
-            priority_weight = 2,
-            comparators = {
-                cmp.config.compare.recently_used,
-                cmp.config.compare.offset,
-                cmp.config.compare.exact,
-                cmp.config.compare.score,
-                cmp.config.compare.kind,
-                cmp.config.compare.sort_text,
-                cmp.config.compare.length,
-                cmp.config.compare.order
-            }
-        }
     }
 )
 

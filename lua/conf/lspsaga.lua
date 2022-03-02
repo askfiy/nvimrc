@@ -1,6 +1,6 @@
 -- https://github.com/tami5/lspsaga.nvim
 
-local plugin_key = vim.u.keymap["lspsaga"].plugin_set
+local plugin_key = vim.u.keymap.binds["lspsaga"].plugin_set
 
 require("lspsaga").setup(
     {

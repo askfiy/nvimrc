@@ -24,4 +24,3 @@ vim.g.neoformat_only_msg_on_error = 1
 -- augroup END
 -- ]])
 
-vim.u.keymap.register_key("neoformat")

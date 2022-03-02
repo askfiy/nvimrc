@@ -7,4 +7,3 @@
 -- :checkhealth telescope
 
 require("telescope").setup()
-vim.u.keymap.register_key("telescope")

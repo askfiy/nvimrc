@@ -15,4 +15,3 @@ require("auto-session").setup(
 vim.cmd([[
     autocmd VimLeavePre * silent! :SaveSession
 ]])
-

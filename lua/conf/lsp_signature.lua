@@ -1,6 +1,6 @@
 -- https://github.com/ray-x/lsp_signature.nvim
 
-local plugin_key = vim.u.keymap["lsp_signature"].plugin_set
+local plugin_key = vim.u.keymap.binds["lsp_signature"].plugin_set
 
 require("lsp_signature").setup(
     {

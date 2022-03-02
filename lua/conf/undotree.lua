@@ -14,4 +14,3 @@ if has("persistent_undo")
 ]]
 )
 
-vim.u.keymap.register_key("undotree")

@@ -2,4 +2,3 @@
 
 require("hop").setup()
 
-vim.u.keymap.register_key("hop")

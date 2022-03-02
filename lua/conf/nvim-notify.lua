@@ -12,7 +12,7 @@ local notify_opts = {
 }
 
 -- 如果是透明背景，则需要设置背景色
-if vim.g.background_transparency then
+if vim.u.background_transparency then
     notify_opts.background_colour = "#ffffff"
 end
 
@@ -24,4 +24,3 @@ vim.notify.setup(notify_opts)
 -- 级别有：info、warn、error、debug、trace
 -- 示例：
 -- vim.notify("hello world", "info", {title = "info"})
-vim.u.keymap.register_key("nvim-notify")

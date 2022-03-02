@@ -1,6 +1,6 @@
 -- https://github.com/terryma/vim-multiple-cursors
 
-local plugin_key = vim.u.keymap["vim-multiple-cursors"].plugin_set
+local plugin_key = vim.u.keymap.binds["vim-multiple-cursors"].plugin_set
 
 -- 关闭默认键位绑定
 vim.g.multi_cursor_use_default_mapping = 0

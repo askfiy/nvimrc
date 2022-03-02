@@ -3,7 +3,7 @@
 
 local comment_string = require("ts_context_commentstring")
 
-local plugin_key = vim.u.keymap["Comment"].plugin_set
+local plugin_key = vim.u.keymap.binds["Comment"].plugin_set
 
 require("Comment").setup(
     {

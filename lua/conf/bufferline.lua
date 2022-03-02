@@ -38,4 +38,3 @@ require("bufferline").setup(
     }
 )
 
-vim.u.keymap.register_key("bufferline")

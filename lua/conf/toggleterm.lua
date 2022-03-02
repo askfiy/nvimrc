@@ -1,7 +1,7 @@
 -- https://github.com/akinsho/toggleterm.nvim
 
 local Toggleterm = require("toggleterm")
-local plugin_key = vim.u.keymap["toggleterm"].plugin_set
+local plugin_key = vim.u.keymap.binds["toggleterm"].plugin_set
 
 Toggleterm.setup(
     {
@@ -23,7 +23,7 @@ local function inInsert()
     -- 进入插入模式
     vim.cmd("startinsert")
     -- 删除 Esc 的映射
-    vim.u.keymap.dgset("t", plugin_key.delete_all_exit)
+    vim.api.nvim_del_keymap("t", plugin_key.delete_all_exit)
 end
 
 -- 新建浮动终端
@@ -38,17 +38,17 @@ local floatTerm =
         on_open = function(term)
             inInsert()
             -- 浮动终端中 Esc 是退出
-            vim.u.keymap.bset(
+            vim.api.nvim_buf_set_keymap(
                 term.bufnr,
                 "t",
                 plugin_key.float.float_exit,
                 "<c-\\><c-n>:close<cr>",
-                vim.u.keymap.ns_opt
+                vim.u.keymap.options.ns_opt
             )
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.u.keymap.gset("t", plugin_key.float.again_exit, "<c-\\><c-n>", vim.u.keymap.ns_opt)
+            vim.api.nvim_set_keymap("t", plugin_key.float.again_exit, "<c-\\><c-n>", vim.u.keymap.options.ns_opt)
         end
     }
 )
@@ -66,11 +66,11 @@ local lazyGit =
         on_open = function(term)
             inInsert()
             -- lazygit 中 q 是退出
-            vim.u.keymap.bset(term.bufnr, "i", plugin_key.lazygit.lazygit_exit, "<cmd>close<CR>", vim.u.keymap.ns_opt)
+            vim.api.nvim_buf_set_keymap(term.bufnr, "i", plugin_key.lazygit.lazygit_exit, "<cmd>close<CR>", vim.u.keymap.options.ns_opt)
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.u.keymap.gset("t", plugin_key.lazygit.again_exit, "<c-\\><c-n>", vim.u.keymap.ns_opt)
+            vim.api.nvim_set_keymap("t", plugin_key.lazygit.again_exit, "<c-\\><c-n>", vim.u.keymap.options.ns_opt)
         end
     }
 )
@@ -90,4 +90,3 @@ end
 -- 2 <键位>
 -- ... <键位>
 -- 另外，上面我们新建了 2 个特殊终端，所以普通终端的顺序应该是从 3 开始
-vim.u.keymap.register_key("toggleterm")

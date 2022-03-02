@@ -2,7 +2,7 @@
 -- https://github.com/p00f/nvim-ts-rainbow
 -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
 
-local plugin_key = vim.u.keymap["nvim-treesitter"].plugin_set
+local plugin_key = vim.u.keymap.binds["nvim-treesitter"].plugin_set
 
 require("nvim-treesitter.configs").setup(
     {

@@ -4,7 +4,7 @@
 -- yay -S sed
 -- https://github.com/BurntSushi/ripgrep
 
-local plugin_key = vim.u.keymap["nvim-spectre"].plugin_set
+local plugin_key = vim.u.keymap.binds["nvim-spectre"].plugin_set
 
 require("spectre").setup(
     {
@@ -12,4 +12,3 @@ require("spectre").setup(
     }
 )
 
-vim.u.keymap.register_key("nvim-spectre")

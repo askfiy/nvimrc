@@ -19,5 +19,3 @@ for dap_name, dap_options in pairs(dap_config) do
     dap.adapters[dap_name] = dap_options.adapters
     dap.configurations[dap_name] = dap_options.configurations
 end
-
-vim.u.keymap.register_key("nvim-dap")
