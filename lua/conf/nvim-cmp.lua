@@ -18,8 +18,7 @@
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")
-local plugin_key = vim.u.keymap.binds["nvim-cmp"].plugin_set
-vim.g.vsnip_snippet_dir = vim.u.platform_snippet_dir
+local plugin_key = vim.u.keymap.set.nvim_cmp.plugin_set
 
 cmp.setup(
     ---@diagnostic disable-next-line: redundant-parameter

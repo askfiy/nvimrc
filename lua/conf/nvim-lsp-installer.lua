@@ -1,6 +1,6 @@
 -- https://github.com/williamboman/nvim-lsp-installer
 
-local plugin_key = vim.u.keymap.binds["nvim-lsp-installer"].plugin_set
+local plugin_key = vim.u.keymap.set.nvim_lsp_installer.plugin_set
 
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
 
@@ -31,58 +31,58 @@ local function attach(_, bufnr)
         "n",
         plugin_key.lsp_definitions,
         "<cmd>Telescope lsp_definitions theme=dropdown<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.lsp_references,
         "<cmd>Telescope lsp_references theme=dropdown<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.diagnostics,
         "<cmd>Telescope diagnostics theme=dropdown<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.lsp_code_actions,
         "<cmd>Telescope lsp_code_actions theme=dropdown<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
-    vim.api.nvim_buf_set_keymap(bufnr, "n", plugin_key.rename, "<cmd>Lspsaga rename<CR>", vim.u.keymap.options.ns_opt)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", plugin_key.hover_doc, "<cmd>Lspsaga hover_doc<CR>", vim.u.keymap.options.ns_opt)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", plugin_key.rename, "<cmd>Lspsaga rename<CR>", vim.u.keymap.opt.ns_opt)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", plugin_key.hover_doc, "<cmd>Lspsaga hover_doc<CR>", vim.u.keymap.opt.ns_opt)
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.diagnostic_jump_prev,
         "<cmd>Lspsaga diagnostic_jump_prev<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.diagnostic_jump_next,
         "<cmd>Lspsaga diagnostic_jump_next<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.smart_scroll_with_saga_prev,
         "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
         plugin_key.smart_scroll_with_saga_next,
         "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-        vim.u.keymap.options.ns_opt
+        vim.u.keymap.opt.ns_opt
     )
 end
 

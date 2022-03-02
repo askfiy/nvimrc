@@ -1,7 +1,5 @@
 -- https://github.com/mbbill/undotree
 
-vim.g.undotree_dir = vim.u.platform_undotree_dir
-
 vim.cmd(
     [[
 if has("persistent_undo")
@@ -13,4 +11,3 @@ if has("persistent_undo")
     set undofile
 ]]
 )
-

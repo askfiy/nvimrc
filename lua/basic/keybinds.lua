@@ -3,22 +3,23 @@ vim.g.mapleader = " "
 
 -- 用户键位绑定设置
 vim.u.keymap = {
-    options = {
+    fn = {
+        register_key = function(plug_name)
+            local vim_api_set = vim.u.keymap.set[plug_name].vim_api_set
+            for _, value in ipairs(vim_api_set) do
+                vim.api.nvim_set_keymap(value[1], value[2], value[3], vim.u.keymap.opt[value[4]])
+            end
+        end
+    },
+    opt = {
         ns_opt = {noremap = true, silent = true},
         se_opt = {silent = true, expr = true}
     },
-    binds = {}
+    set = {}
 }
 
 -- 应用键位绑定
-vim.u.keymap.register_key = function(plug_name)
-    local vim_api_set = vim.u.keymap.binds[plug_name].vim_api_set
-    for _, value in ipairs(vim_api_set) do
-        vim.api.nvim_set_keymap(value[1], value[2], value[3], vim.u.keymap.options[value[4]])
-    end
-end
-
-vim.u.keymap.binds["basic"] = {
+vim.u.keymap.set.base = {
     vim_api_set = {
         {"n", "\\\\", "<cmd>qa<cr>", "ns_opt"},
         {"n", "<esc>", ":nohlsearch<cr>", "ns_opt"},
@@ -42,7 +43,7 @@ vim.u.keymap.binds["basic"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["bufferline"] = {
+vim.u.keymap.set.bufferline = {
     vim_api_set = {
         {"n", "<c-q>", "<cmd>Bdelete!<cr>", "ns_opt"},
         {"n", "<c-h>", "<cmd>BufferLineCyclePrev<cr>", "ns_opt"},
@@ -64,7 +65,7 @@ vim.u.keymap.binds["bufferline"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["Comment"] = {
+vim.u.keymap.set.comment = {
     vim_api_set = {},
     plugin_set = {
         toggle = {
@@ -83,14 +84,14 @@ vim.u.keymap.binds["Comment"] = {
     }
 }
 
-vim.u.keymap.binds["copilot"] = {
+vim.u.keymap.set.copilot = {
     vim_api_set = {
         {"i", "<c-l>", "copilot#Accept('')", "se_opt"}
     },
     plugin_set = {}
 }
 
-vim.u.keymap.binds["hop"] = {
+vim.u.keymap.set.hop = {
     vim_api_set = {
         {"n", "<leader>hw", "<cmd>HopWord<cr>", "ns_opt"},
         {"n", "<leader>hl", "<cmd>HopLine<cr>", "ns_opt"},
@@ -99,14 +100,14 @@ vim.u.keymap.binds["hop"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["lsp_signature"] = {
+vim.u.keymap.set.lsp_signature = {
     vim_api_set = {},
     plugin_set = {
         toggle_key = "<c-j>"
     }
 }
 
-vim.u.keymap.binds["lspsaga"] = {
+vim.u.keymap.set.lspsaga = {
     vim_api_set = {},
     plugin_set = {
         code_action_keys = {
@@ -120,14 +121,14 @@ vim.u.keymap.binds["lspsaga"] = {
     }
 }
 
-vim.u.keymap.binds["neoformat"] = {
+vim.u.keymap.set.neoformat = {
     vim_api_set = {
         {"n", "<leader>cf", "<cmd>Neoformat<cr>", "ns_opt"}
     },
     plugin_set = {}
 }
 
-vim.u.keymap.binds["nvim-cmp"] = {
+vim.u.keymap.set.nvim_cmp = {
     vim_api_set = {},
     plugin_set = {
         select_prev_item = "<c-p>",
@@ -138,14 +139,14 @@ vim.u.keymap.binds["nvim-cmp"] = {
     }
 }
 
-vim.u.keymap.binds["nvim-dap-ui"] = {
+vim.u.keymap.set.nvim_dap_ui = {
     vim_api_set = {
         {"n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", "ns_opt"}
     },
     plugin_set = {}
 }
 
-vim.u.keymap.binds["nvim-dap"] = {
+vim.u.keymap.set.nvim_dap = {
     vim_api_set = {
         {"n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "ns_opt"},
         {"n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", "ns_opt"},
@@ -163,7 +164,7 @@ vim.u.keymap.binds["nvim-dap"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["nvim-hlslens"] = {
+vim.u.keymap.set.nvim_hlslens = {
     vim_api_set = {
         {
             "n",
@@ -185,7 +186,7 @@ vim.u.keymap.binds["nvim-hlslens"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["nvim-lsp-installer"] = {
+vim.u.keymap.set.nvim_lsp_installer = {
     vim_api_set = {},
     plugin_set = {
         lsp_definitions = "gd",
@@ -201,7 +202,7 @@ vim.u.keymap.binds["nvim-lsp-installer"] = {
     }
 }
 
-vim.u.keymap.binds["nvim-notify"] = {
+vim.u.keymap.set.nvim_notify = {
     vim_api_set = {
         {
             "n",
@@ -213,7 +214,7 @@ vim.u.keymap.binds["nvim-notify"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["nvim-spectre"] = {
+vim.u.keymap.set.nvim_spectre = {
     vim_api_set = {
         {"n", "<leader>rp", "<cmd>lua require('spectre').open()<cr>", "ns_opt"},
         {"n", "<leader>rf", "viw:lua require('spectre').open_file_search()<cr>", "ns_opt"},
@@ -250,7 +251,7 @@ vim.u.keymap.binds["nvim-spectre"] = {
     }
 }
 
-vim.u.keymap.binds["nvim-tree"] = {
+vim.u.keymap.set.nvim_tree = {
     vim_api_set = {
         {"n", "<leader>1", "<cmd>NvimTreeToggle<cr>", "ns_opt"},
         {"n", "<leader>fc", "<cmd>NvimTreeFindFile<cr>", "ns_opt"}
@@ -280,7 +281,7 @@ vim.u.keymap.binds["nvim-tree"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["nvim-treesitter"] = {
+vim.u.keymap.set.nvim_treesitter = {
     vim_api_set = {},
     plugin_set = {
         incremental_selection_keymaps = {
@@ -292,14 +293,14 @@ vim.u.keymap.binds["nvim-treesitter"] = {
     }
 }
 
-vim.u.keymap.binds["switch"] = {
+vim.u.keymap.set.switch = {
     vim_api_set = {
         {"n", "gs", ":Switch<cr>", "ns_opt"}
     },
     plugin_set = {}
 }
 
-vim.u.keymap.binds["telescope"] = {
+vim.u.keymap.set.telescope = {
     vim_api_set = {
         {"n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown<cr>", "ns_opt"},
         {"n", "<leader>fg", "<cmd>Telescope live_grep theme=dropdown<cr>", "ns_opt"},
@@ -310,14 +311,14 @@ vim.u.keymap.binds["telescope"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["todo-comments"] = {
+vim.u.keymap.set.todo_comments = {
     vim_api_set = {
         {"n", "<leader>ft", "<cmd>TodoTelescope theme=dropdown<cr>", "ns_opt"}
     },
     plugin_set = {}
 }
 
-vim.u.keymap.binds["toggleterm"] = {
+vim.u.keymap.set.toggleterm = {
     vim_api_set = {
         {"t", "<esc>", "<c-\\><c-n>", "ns_opt"},
         {"n", "<leader>tt", "<cmd>exe v:count.'ToggleTerm'<cr>", "ns_opt"},
@@ -338,14 +339,14 @@ vim.u.keymap.binds["toggleterm"] = {
     }
 }
 
-vim.u.keymap.binds["undotree"] = {
+vim.u.keymap.set.undotree = {
     vim_api_set = {
         {"n", "<leader>3", ":UndotreeToggle<cr>", "ns_opt"}
     },
     plugin_set = {}
 }
 
-vim.u.keymap.binds["vim-carbon-now-sh"] = {
+vim.u.keymap.set.vim_carbon_now_sh = {
     vim_api_set = {
         {"v", "<leader>ch", ":CarbonNowSh<cr>", "ns_opt"},
         {"n", "<leader>ch", ":CarbonNowSh<cr>", "ns_opt"}
@@ -353,7 +354,7 @@ vim.u.keymap.binds["vim-carbon-now-sh"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["vim-multiple-cursors"] = {
+vim.u.keymap.set.vim_multiple_cursors = {
     vim_api_set = {},
     plugin_set = {
         start_word_key = "gb",
@@ -364,7 +365,7 @@ vim.u.keymap.binds["vim-multiple-cursors"] = {
     }
 }
 
-vim.u.keymap.binds["vim-translator"] = {
+vim.u.keymap.set.vim_translator = {
     vim_api_set = {
         {"n", "<leader>tsc", ":Translate --target_lang=zh --source_lang=auto<cr>", "ns_opt"},
         {"v", "<leader>tsc", ":TranslateW --target_lang=zh --source_lang=auto<cr>", "ns_opt"},
@@ -378,7 +379,7 @@ vim.u.keymap.binds["vim-translator"] = {
     plugin_set = {}
 }
 
-vim.u.keymap.binds["vista"] = {
+vim.u.keymap.set.vista = {
     vim_api_set = {
         {"n", "<leader>2", "<cmd>Vista!!<cr>", "ns_opt"}
     },
@@ -386,6 +387,6 @@ vim.u.keymap.binds["vista"] = {
 }
 
 -- 绑定键位
-for plug_name, _ in pairs(vim.u.keymap.binds) do
-    vim.u.keymap.register_key(plug_name)
+for plug_name, _ in pairs(vim.u.keymap.set) do
+    vim.u.keymap.fn.register_key(plug_name)
 end

@@ -1,7 +1,7 @@
 -- https://github.com/akinsho/toggleterm.nvim
 
 local Toggleterm = require("toggleterm")
-local plugin_key = vim.u.keymap.binds["toggleterm"].plugin_set
+local plugin_key = vim.u.keymap.set.toggleterm.plugin_set
 
 Toggleterm.setup(
     {
@@ -43,12 +43,12 @@ local floatTerm =
                 "t",
                 plugin_key.float.float_exit,
                 "<c-\\><c-n>:close<cr>",
-                vim.u.keymap.options.ns_opt
+                vim.u.keymap.opt.ns_opt
             )
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.api.nvim_set_keymap("t", plugin_key.float.again_exit, "<c-\\><c-n>", vim.u.keymap.options.ns_opt)
+            vim.api.nvim_set_keymap("t", plugin_key.float.again_exit, "<c-\\><c-n>", vim.u.keymap.opt.ns_opt)
         end
     }
 )
@@ -66,11 +66,11 @@ local lazyGit =
         on_open = function(term)
             inInsert()
             -- lazygit 中 q 是退出
-            vim.api.nvim_buf_set_keymap(term.bufnr, "i", plugin_key.lazygit.lazygit_exit, "<cmd>close<CR>", vim.u.keymap.options.ns_opt)
+            vim.api.nvim_buf_set_keymap(term.bufnr, "i", plugin_key.lazygit.lazygit_exit, "<cmd>close<CR>", vim.u.keymap.opt.ns_opt)
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.api.nvim_set_keymap("t", plugin_key.lazygit.again_exit, "<c-\\><c-n>", vim.u.keymap.options.ns_opt)
+            vim.api.nvim_set_keymap("t", plugin_key.lazygit.again_exit, "<c-\\><c-n>", vim.u.keymap.opt.ns_opt)
         end
     }
 )

@@ -86,7 +86,7 @@ local install_plugins = {
         -- git copilot 自动补全
         "github/copilot.vim",
         load_file = true,
-        event = "InsertEnter"
+        event = "InsertCharPre"
     },
     {
         -- vsnip 引擎，用于获得代码片段支持
