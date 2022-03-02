@@ -136,7 +136,7 @@ local install_plugins = {
         -- 优秀的暗色主题
         "catppuccin/nvim",
         as = "catppuccin",
-        load_file = true,
+        load_file = true
     },
     {
         -- 删除 buffer 时不影响现有布局
@@ -350,7 +350,7 @@ require("packer").startup(
                 if plugin.load_file then
                     local require_path
                     if plugin.as then
-                        require_path = "conf" .. "/" .. plugin.as
+                        require_path = "conf/" .. plugin.as
                     else
                         require_path = "conf" .. string.match(plugin[1], "(/[%w-_]+).?")
                     end

@@ -17,7 +17,7 @@ components.active[1] = {
         provider = " ",
         hl = function()
             return {
-                bg = "skyblue",
+                bg = "oceanblue",
                 style = "bold"
             }
         end
