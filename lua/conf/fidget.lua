@@ -2,7 +2,7 @@
 
 require("fidget").setup({
     window = {
-        -- 全透明
+        -- 透明度
         blend = 0,
     }
 })

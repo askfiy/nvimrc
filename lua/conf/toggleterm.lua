@@ -42,13 +42,13 @@ local floatTerm =
                 term.bufnr,
                 "t",
                 plugin_key.float.float_exit,
-                "<C-\\><C-n>:close<CR>",
+                "<c-\\><c-n>:close<cr>",
                 vim.u.keymap.ns_opt
             )
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.u.keymap.gset("t", plugin_key.float.again_exit, "<C-\\><C-n>", vim.u.keymap.ns_opt)
+            vim.u.keymap.gset("t", plugin_key.float.again_exit, "<c-\\><c-n>", vim.u.keymap.ns_opt)
         end
     }
 )
@@ -70,7 +70,7 @@ local lazyGit =
         end,
         on_close = function()
             -- 重新映射 Esc
-            vim.u.keymap.gset("t", plugin_key.lazygit.again_exit, "<C-\\><C-n>", vim.u.keymap.ns_opt)
+            vim.u.keymap.gset("t", plugin_key.lazygit.again_exit, "<c-\\><c-n>", vim.u.keymap.ns_opt)
         end
     }
 )

@@ -137,7 +137,6 @@ local install_plugins = {
         "catppuccin/nvim",
         as = "catppuccin",
         load_file = true,
-        disable = false
     },
     {
         -- 删除 buffer 时不影响现有布局

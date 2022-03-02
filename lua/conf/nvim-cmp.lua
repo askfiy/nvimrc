@@ -13,8 +13,7 @@
 -- FIX: tabline 在某些计算机上有 1 个 BUG
 -- 当出现：
 --    TabNine is not executable
--- 等字样时，需要手动执行：
---    rm ~/.local/share/nvim/plugged/cmp-tabnine/binaries
+-- 需手动执行：
 --    ~/.local/share/nvim/plugged/cmp-tabnine/install.sh
 
 local lspkind = require("lspkind")
@@ -59,15 +58,11 @@ cmp.setup(
         },
         -- 绑定补全相关的按键
         mapping = {
-            -- 上一个（只有在确认时才选择补全）
             -- ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior}),
             [plugin_key.select_prev_item] = cmp.mapping.select_prev_item(),
-            -- 下一个（只有在确认时才选择补全）
             -- ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior}),
             [plugin_key.select_next_item] = cmp.mapping.select_next_item(),
-            -- 选择补全
             [plugin_key.confirm_current] = cmp.mapping.confirm(),
-            --  出现或关闭补全
             [plugin_key.toggle_complete] = cmp.mapping(
                 {
                     i = function()
@@ -86,8 +81,6 @@ cmp.setup(
                     end
                 }
             ),
-            -- 类似于 IDEA 的功能，如果没进入选择框，tab
-            -- 会选择下一个，如果进入了选择框，tab 会确认当前选择
             [plugin_key.current_or_next] = cmp.mapping(
                 function(fallback)
                     if cmp.visible() then
@@ -103,13 +96,22 @@ cmp.setup(
                 {"i", "s", "c"}
             )
         },
-        -- 建议排序
         sorting = {
+            priority_weight = 2,
+            comparators = {
+                cmp.config.compare.recently_used,
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
+                cmp.config.compare.kind,
+                cmp.config.compare.sort_text,
+                cmp.config.compare.length,
+                cmp.config.compare.order
+            }
         }
     }
 )
 
--- 命令行 / 模式提示
 cmp.setup.cmdline(
     "/",
     {
@@ -119,7 +121,6 @@ cmp.setup.cmdline(
     }
 )
 
--- 命令行 : 模式提示
 cmp.setup.cmdline(
     ":",
     {

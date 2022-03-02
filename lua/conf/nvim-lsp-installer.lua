@@ -26,7 +26,6 @@ local servers = {
 }
 
 local function attach(_, bufnr)
-    -- 跳转到定义
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -34,7 +33,6 @@ local function attach(_, bufnr)
         "<cmd>Telescope lsp_definitions theme=dropdown<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 列出光标下所有引用
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -42,7 +40,6 @@ local function attach(_, bufnr)
         "<cmd>Telescope lsp_references theme=dropdown<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 工作区诊断
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -50,7 +47,6 @@ local function attach(_, bufnr)
         "<cmd>Telescope diagnostics theme=dropdown<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 显示代码可用操作
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -58,11 +54,8 @@ local function attach(_, bufnr)
         "<cmd>Telescope lsp_code_actions theme=dropdown<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 变量重命名
     vim.u.keymap.bset(bufnr, "n", plugin_key.rename, "<cmd>Lspsaga rename<CR>", vim.u.keymap.ns_opt)
-    -- 查看帮助信息
     vim.u.keymap.bset(bufnr, "n", plugin_key.hover_doc, "<cmd>Lspsaga hover_doc<CR>", vim.u.keymap.ns_opt)
-    -- 跳转到上一个问题
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -70,7 +63,6 @@ local function attach(_, bufnr)
         "<cmd>Lspsaga diagnostic_jump_prev<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 跳转到下一个问题
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -78,7 +70,6 @@ local function attach(_, bufnr)
         "<cmd>Lspsaga diagnostic_jump_next<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 悬浮窗口上翻页
     vim.u.keymap.bset(
         bufnr,
         "n",
@@ -86,7 +77,6 @@ local function attach(_, bufnr)
         "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
         vim.u.keymap.ns_opt
     )
-    -- 悬浮窗口下翻页
     vim.u.keymap.bset(
         bufnr,
         "n",
