@@ -403,7 +403,7 @@ local install_plugins = {
         -- 翻译插件
         "voldikss/vim-translator",
         load_file = true,
-        cmd = "Translate"
+        cmd = {"Translate", "TranslateR"}
     },
     {
         -- 代码长截图
