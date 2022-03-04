@@ -56,4 +56,3 @@ vim.g.nvim_tree_icons = {
 
 -- 目录后加上反斜杠 /
 vim.g.nvim_tree_add_trailing = 1
-

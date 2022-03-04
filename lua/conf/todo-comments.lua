@@ -17,5 +17,3 @@ require("todo-comments").setup(
         }
     }
 )
-
-

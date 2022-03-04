@@ -2,7 +2,7 @@
 -- https://github.com/wbthomason/packer.nvim
 local install_plugins = {
     {
-        -- 包管理器
+        -- packer 包管理器
         "wbthomason/packer.nvim"
     },
     {
@@ -42,12 +42,12 @@ local install_plugins = {
         event = {"BufRead", "BufNewFile"}
     },
     {
-        -- 替换内置 omnifunc，获得更多补全
+        -- 替换内置 omnifunc 补全，获得更多补全
         "hrsh7th/cmp-nvim-lsp",
         after = "nvim-lspconfig"
     },
     {
-        -- 自动下载 LSP 服务
+        -- 自动下载 LSP
         "williamboman/nvim-lsp-installer",
         load_file = true,
         after = "cmp-nvim-lsp"
@@ -340,7 +340,7 @@ local install_plugins = {
         -- 自动会话管理
         "rmagatti/auto-session",
         load_file = true,
-        disable = false
+        disable = true
     },
     {
         -- 自动恢复光标位置
@@ -403,7 +403,7 @@ local install_plugins = {
         -- 翻译插件
         "voldikss/vim-translator",
         load_file = true,
-        cmd = {"Translate", "TranslateR"}
+        cmd = {"Translate", "TranslateR", "TranslateW"}
     },
     {
         -- 代码长截图

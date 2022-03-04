@@ -1,7 +1,5 @@
--- 绑定前导键
 vim.g.mapleader = " "
 
--- 用户键位绑定设置
 vim.u.keymap = {
     fn = {
         register_key = function(plug_name)
@@ -18,11 +16,11 @@ vim.u.keymap = {
     set = {}
 }
 
--- 应用键位绑定
 vim.u.keymap.set.base = {
     vim_api_set = {
         {"n", "\\\\", "<cmd>qa<cr>", "ns_opt"},
         {"n", "<esc>", ":nohlsearch<cr>", "ns_opt"},
+        {"t", "<esc>", "<c-\\><c-n>", "ns_opt"},
         {"i", "jj", "<esc>", "ns_opt"},
         {"n", "H", "^", "ns_opt"},
         {"v", "H", "^", "ns_opt"},
@@ -38,7 +36,10 @@ vim.u.keymap.set.base = {
         {"n", "<a-j>", "<cmd>res -1<cr>", "ns_opt"},
         {"n", "<a-h>", "<cmd>vertical resize-1<cr>", "ns_opt"},
         {"n", "<a-l>", "<cmd>vertical resize+1<cr>", "ns_opt"},
-        {"n", "<leader>cs", "<cmd>set spell!<cr>", "ns_opt"}
+        {"n", "<leader>cs", "<cmd>set spell!<cr>", "ns_opt"},
+        {"n", ";y", '"+y', "ns_opt"},
+        {"n", ";p", '"+p', "ns_opt"},
+        {"n", ";P", '"+P', "ns_opt"}
     },
     plugin_set = {}
 }
@@ -320,7 +321,6 @@ vim.u.keymap.set.todo_comments = {
 
 vim.u.keymap.set.toggleterm = {
     vim_api_set = {
-        {"t", "<esc>", "<c-\\><c-n>", "ns_opt"},
         {"n", "<leader>tt", "<cmd>exe v:count.'ToggleTerm'<cr>", "ns_opt"},
         {"n", "<leader>tf", "<cmd>lua require('toggleterm').float_toggle()<cr>", "ns_opt"},
         {"n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<cr>", "ns_opt"},
@@ -386,7 +386,6 @@ vim.u.keymap.set.vista = {
     plugin_set = {}
 }
 
--- 绑定键位
 for plug_name, _ in pairs(vim.u.keymap.set) do
     vim.u.keymap.fn.register_key(plug_name)
 end

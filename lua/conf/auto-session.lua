@@ -1,5 +1,7 @@
 -- https://github.com/rmagatti/auto-session
 
+-- 该插件会拖慢启动速度，因此禁用了
+
 -- 推荐设置
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 

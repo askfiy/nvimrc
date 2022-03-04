@@ -28,4 +28,3 @@ end
 
 -- 放入全局变量
 vim.g.switch_custom_definitions = push_words
-

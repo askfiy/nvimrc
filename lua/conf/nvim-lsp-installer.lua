@@ -105,7 +105,7 @@ for server_name, server_options in pairs(servers) do
                 server:setup(server_options)
             end
         )
-        -- 如果语言服务器已准备就绪，则在缓冲区启动
+        -- 如果语言服务器未准备就绪，则自动安装
         if not server:is_installed() then
             vim.notify("Install Language Server : " .. server_name, "WARN", {title = "Language Servers"})
             server:install()

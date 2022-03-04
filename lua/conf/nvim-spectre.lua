@@ -11,4 +11,3 @@ require("spectre").setup(
         mapping = plugin_key.mapping
     }
 )
-

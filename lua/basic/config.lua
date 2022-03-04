@@ -1,36 +1,36 @@
 -- 用户设置
 vim.u = {}
 
--- 获取平台图标
+-- 平台图标
 local platform_icons = {
     MAC = " ",
     UNIX = " ",
     WINDOWS = " "
 }
 
--- 获取平台 Python 解释器路径
+-- Python 解释器
 local platform_python = {
     MAC = "/usr/local/bin/python3",
     UNIX = "/usr/bin/python3",
     WINDOWS = "C:\\Python\\python.exe"
 }
 
--- 获取平台信息
+-- 平台信息
 vim.u.platform_info = vim.bo.fileformat:upper()
--- 获取平台图标
+-- 平台图标
 vim.u.platform_icon = platform_icons[vim.u.platform_info]
--- Python 解释器目录
+-- 解释器路径
 vim.u.platform_python_path = platform_python[vim.u.platform_info]
 -- 是否开启透明背景
 vim.u.background_transparency = true
 
--- 指定代码片段存储路径
+-- 代码片段存储路径
 vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippet"
--- 指定 undotree 缓存存放路径
+-- undotree 缓存存放路径
 vim.g.undotree_dir = vim.fn.stdpath("config") .. "/undodir"
--- 指定 lint 配置文件路径
+-- lint 配置文件路径
 vim.g.nvim_lint_dir = vim.fn.stdpath("config") .. "/lint"
--- 指定 translate 代理服务器
+-- translate 代理服务器
 vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
 
 -- 自动切换输入法（Fcitx 框架）

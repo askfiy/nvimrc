@@ -66,7 +66,13 @@ local lazyGit =
         on_open = function(term)
             inInsert()
             -- lazygit 中 q 是退出
-            vim.api.nvim_buf_set_keymap(term.bufnr, "i", plugin_key.lazygit.lazygit_exit, "<cmd>close<CR>", vim.u.keymap.opt.ns_opt)
+            vim.api.nvim_buf_set_keymap(
+                term.bufnr,
+                "i",
+                plugin_key.lazygit.lazygit_exit,
+                "<cmd>close<CR>",
+                vim.u.keymap.opt.ns_opt
+            )
         end,
         on_close = function()
             -- 重新映射 Esc
@@ -83,10 +89,3 @@ end
 Toggleterm.lazygit_toggle = function()
     lazyGit:toggle()
 end
-
-
--- 要需创建多个终端，可：
--- 1 <键位>
--- 2 <键位>
--- ... <键位>
--- 另外，上面我们新建了 2 个特殊终端，所以普通终端的顺序应该是从 3 开始
