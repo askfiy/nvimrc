@@ -4,7 +4,7 @@
     "body": [
       "package main\n",
       "import \"fmt\"\n",
-      "func main(){",
+      "func main() {",
       "\tfmt.Printf(\"hi Golang\\n${1}\")",
       "}"
     ],

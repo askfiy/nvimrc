@@ -1,6 +1,16 @@
 -- pacman -S delve
 -- go install github.com/go-delve/delve/cmd/dlv@latest
 
+-- gopkgs
+-- go-outline
+-- gotests
+-- gomodifytags
+-- impl
+-- goplay
+-- dlv
+-- staticcheck
+-- gopls
+
 return {
     adapters = function(callback, _) -- _ = config
         local stdout = vim.loop.new_pipe(false)
