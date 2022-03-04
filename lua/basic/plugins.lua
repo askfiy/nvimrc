@@ -1,8 +1,7 @@
 ---@diagnostic disable: undefined-global
 -- https://github.com/wbthomason/packer.nvim
 
-local install_path = vim.fn.stdpath("data") .. "/pack/packer.nvim/opt/packer.nvim"
-
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     ---@diagnostic disable-next-line: lowercase-global
     packer_bootstrap =
@@ -10,6 +9,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 local install_plugins = {
+    {
+        -- packer 包管理器
+        "wbthomason/packer.nvim"
+    },
     {
         -- 优化启动速度
         "lewis6991/impatient.nvim",
@@ -423,9 +426,10 @@ local install_plugins = {
     }
 }
 
-require("packer").startup(
+local packer =
+    require("packer").startup(
     {
-        function()
+        function(use)
             for _, plugin in ipairs(install_plugins) do
                 if plugin.load_file then
                     local require_path
@@ -439,7 +443,7 @@ require("packer").startup(
                 use(plugin)
             end
             if packer_bootstrap then
-                packer_bootstrap("packer").sync()
+                require("packer").sync()
             end
         end,
         config = {
@@ -459,3 +463,5 @@ vim.cmd(
   augroup end
 ]]
 )
+
+return packer

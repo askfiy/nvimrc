@@ -14,7 +14,7 @@
 -- 当出现：
 --    TabNine is not executable
 -- 需手动执行：
---    ~/.local/share/nvim/plugged/cmp-tabnine/install.sh
+--    ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine/install.sh                             127 ✘  
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")
