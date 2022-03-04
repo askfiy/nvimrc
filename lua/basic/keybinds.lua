@@ -38,8 +38,15 @@ vim.u.keymap.set.base = {
         {"n", "<a-l>", "<cmd>vertical resize+1<cr>", "ns_opt"},
         {"n", "<leader>cs", "<cmd>set spell!<cr>", "ns_opt"},
         {"n", ";y", '"+y', "ns_opt"},
+        {"v", ";y", '"+y', "ns_opt"},
+        {"n", ";d", '"+d', "ns_opt"},
+        {"n", ";D", '"+D', "ns_opt"},
+        {"v", ";d", '"+d', "ns_opt"},
+        {"v", ";D", '"+D', "ns_opt"},
         {"n", ";p", '"+p', "ns_opt"},
-        {"n", ";P", '"+P', "ns_opt"}
+        {"n", ";P", '"+P', "ns_opt"},
+        {"v", ";p", '"+p', "ns_opt"},
+        {"v", ";P", '"+P', "ns_opt"}
     },
     plugin_set = {}
 }
