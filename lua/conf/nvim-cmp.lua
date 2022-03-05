@@ -13,8 +13,8 @@
 -- FIX: tabline 在某些计算机上有 1 个 BUG
 -- 当出现：
 --    TabNine is not executable
--- 需手动执行：
---    ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine/install.sh                             127 ✘  
+-- 需手动执行（提前安装 curl 命令）：
+--    ~/.local/share/nvim/site/pack/packer/opt/cmp-tabnine/install.sh
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")

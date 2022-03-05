@@ -8,9 +8,10 @@ local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
--- WARN: 手动书写 LSP 配置文件
+-- WARN: lsp install 手动书写 LSP 配置文件
 -- 名称：https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- 配置：https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- 另外注意安装的 nodejs 和 npm 的版本要新，太久的版本会导致 lsp 无法正常工作
 
 local servers = {
     sumneko_lua = require("lsp.sumneko_lua"),
@@ -30,8 +31,7 @@ local function attach(_, bufnr)
         bufnr,
         "n",
         plugin_key.lsp_definitions,
-        "<cmd>Telescope lsp_definitions theme=dropdown<CR>",
-        vim.u.keymap.opt.ns_opt
+        "<cmd>Telescope lsp_definitions theme=dropdown<CR>", vim.u.keymap.opt.ns_opt
     )
     vim.api.nvim_buf_set_keymap(
         bufnr,
