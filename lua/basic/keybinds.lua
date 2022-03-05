@@ -387,13 +387,6 @@ vim.u.keymap.set.vim_translator = {
     plugin_set = {}
 }
 
--- vim.u.keymap.set.vista = {
---     vim_api_set = {
---         {"n", "<leader>2", "<cmd>Vista!!<cr>", "ns_opt"}
---     },
---     plugin_set = {}
--- }
-
 vim.u.keymap.set.aerial = {
     vim_api_set = {},
     plugin_set = {
