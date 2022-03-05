@@ -1,6 +1,11 @@
 vim.g.mapleader = " "
 
 vim.u.keymap = {
+    set = {},
+    opt = {
+        ns_opt = {noremap = true, silent = true},
+        se_opt = {silent = true, expr = true}
+    },
     fn = {
         register_key = function(plug_name)
             local vim_api_set = vim.u.keymap.set[plug_name].vim_api_set
@@ -8,12 +13,7 @@ vim.u.keymap = {
                 vim.api.nvim_set_keymap(value[1], value[2], value[3], vim.u.keymap.opt[value[4]])
             end
         end
-    },
-    opt = {
-        ns_opt = {noremap = true, silent = true},
-        se_opt = {silent = true, expr = true}
-    },
-    set = {}
+    }
 }
 
 vim.u.keymap.set.base = {
@@ -37,6 +37,7 @@ vim.u.keymap.set.base = {
         {"n", "<a-h>", "<cmd>vertical resize-1<cr>", "ns_opt"},
         {"n", "<a-l>", "<cmd>vertical resize+1<cr>", "ns_opt"},
         {"n", "<leader>cs", "<cmd>set spell!<cr>", "ns_opt"},
+        {"n", ";;", ";", "ns_opt"},
         {"n", ";y", '"+y', "ns_opt"},
         {"v", ";y", '"+y', "ns_opt"},
         {"n", ";d", '"+d', "ns_opt"},

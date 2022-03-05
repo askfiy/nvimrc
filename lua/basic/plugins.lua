@@ -226,11 +226,7 @@ local install_plugins = {
         -- undo tree
         "mbbill/undotree",
         load_file = true,
-        keys = {
-            {"n", "u"},
-            {"n", "<c-r>"}
-        },
-        cmd = "UndotreeToggle"
+        event = {"BufRead", "BufNewFile"}
     },
     {
         -- view tree
