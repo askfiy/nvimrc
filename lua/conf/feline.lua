@@ -20,7 +20,11 @@ components.active[1] = {
                 bg = "oceanblue",
                 style = "bold"
             }
-        end
+        end,
+        -- 组建隐藏后显示的消息
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 4
     },
     {
         provider = " " .. vim.u.platform_icon .. vim.u.platform_info .. " ",
@@ -43,7 +47,9 @@ components.active[1] = {
                     fg = vi_mode_utils.get_mode_color()
                 }
             end
-        end
+        end,
+        short_provider = "",
+        priority = 5
     },
     {
         provider = "file_info",
@@ -73,7 +79,9 @@ components.active[1] = {
                     bg = "bg"
                 }
             }
-        }
+        },
+        short_provider = "",
+        priority = 3
     },
     {
         provider = "position",
@@ -87,7 +95,9 @@ components.active[1] = {
                     bg = "bg"
                 }
             }
-        }
+        },
+        short_provider = "",
+        priority = 2
     },
     -- 加入当前光标所在上下文的路径提示，由 gps 提供
     {
@@ -97,11 +107,8 @@ components.active[1] = {
         enabled = function()
             return gps.is_available()
         end,
-        -- 第一个隐藏的组件
-        -- 组件隐藏后显示的短提示
         short_provider = "",
-        -- 组件隐藏优先级
-        priority = -10,
+        priority = 1,
         left_sep = {
             {str = " ", hl = {bg = "bg", fg = "NONE"}}
         }
@@ -111,22 +118,37 @@ components.active[1] = {
 components.active[2] = {
     {
         provider = "diagnostic_errors",
-        hl = {fg = "red"}
+        hl = {fg = "red"},
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 12
     },
     {
         provider = "diagnostic_warnings",
-        hl = {fg = "yellow"}
+        hl = {fg = "yellow"},
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 11
     },
     {
         provider = "diagnostic_hints",
-        hl = {fg = "cyan"}
+        hl = {fg = "cyan"},
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 10
     },
     {
         provider = "diagnostic_info",
-        hl = {fg = "skyblue"}
+        hl = {fg = "skyblue"},
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 9
     },
     {
-        provider = " "
+        provider = " ",
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 13
     },
     {
         provider = "git_branch",
@@ -148,21 +170,29 @@ components.active[2] = {
                 fg = "NONE",
                 bg = "black"
             }
-        }
+        },
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 14
     },
     {
         provider = "git_diff_added",
         hl = {
             fg = "green",
             bg = "black"
-        }
+        },
+        short_provider = "",
+        priority = 8
     },
     {
         provider = "git_diff_changed",
         hl = {
             fg = "orange",
             bg = "black"
-        }
+        },
+        short_provider = "",
+        -- 组件隐藏优先级（越低越优先消失）
+        priority = 7
     },
     {
         provider = "git_diff_removed",
@@ -176,7 +206,9 @@ components.active[2] = {
                 fg = "NONE",
                 bg = "black"
             }
-        }
+        },
+        short_provider = "",
+        priority = 6
     },
     {
         provider = "line_percentage",

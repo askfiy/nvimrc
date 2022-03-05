@@ -387,11 +387,34 @@ vim.u.keymap.set.vim_translator = {
     plugin_set = {}
 }
 
-vim.u.keymap.set.vista = {
-    vim_api_set = {
-        {"n", "<leader>2", "<cmd>Vista!!<cr>", "ns_opt"}
-    },
-    plugin_set = {}
+-- vim.u.keymap.set.vista = {
+--     vim_api_set = {
+--         {"n", "<leader>2", "<cmd>Vista!!<cr>", "ns_opt"}
+--     },
+--     plugin_set = {}
+-- }
+
+vim.u.keymap.set.aerial = {
+    vim_api_set = {},
+    plugin_set = {
+        aerial_toggle = "<leader>2",
+        aerial_prev = "{",
+        aerial_next = "}",
+        aerial_prev_up = "[[",
+        aerial_next_up = "]]"
+    }
+    -- <C-j> : 移动到下一个项目
+    -- <C-k> : 移动到上一个项目
+    -- {     : 移动到上一个类别
+    -- }     : 移动到下一个类别
+    -- [[    : 移动到上一个类别
+    -- ]]    : 移动到下一个类别
+    -- o     : 打开当前项目
+    -- za    : 切换当前项目
+    -- zc    : 关闭当前项目
+    -- zo    : 打开当前项目
+    -- zM    : 关闭所有项目
+    -- zR    : 关闭所有项目
 }
 
 for plug_name, _ in pairs(vim.u.keymap.set) do

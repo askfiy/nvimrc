@@ -50,9 +50,15 @@ local install_plugins = {
         event = {"BufRead", "BufNewFile"}
     },
     {
+        -- view tree
+        "stevearc/aerial.nvim",
+        load_file = true,
+        after = {"nvim-web-devicons", "nvim-lspconfig"}
+    },
+    {
         -- 替换内置 omnifunc 补全，获得更多补全
         "hrsh7th/cmp-nvim-lsp",
-        after = "nvim-lspconfig"
+        after = "aerial.nvim"
     },
     {
         -- 自动下载 LSP
@@ -104,7 +110,7 @@ local install_plugins = {
     {
         -- 为补全添加类似 vscode 的图标
         "onsails/lspkind-nvim",
-        after = "vim-vsnip"
+        event = "InsertEnter"
     },
     {
         -- 代码补全
@@ -227,12 +233,6 @@ local install_plugins = {
         "mbbill/undotree",
         load_file = true,
         event = {"BufRead", "BufNewFile"}
-    },
-    {
-        -- view tree
-        "liuchengxu/vista.vim",
-        load_file = true,
-        cmd = "Vista"
     },
     {
         -- 模糊查找
