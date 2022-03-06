@@ -176,6 +176,7 @@ local install_plugins = {
         -- 优秀的暗色主题
         "catppuccin/nvim",
         as = "catppuccin",
+        disable = false,
         load_file = true
     },
     {
@@ -206,6 +207,7 @@ local install_plugins = {
     {
         -- 轻量级的状态栏插件
         "feline-nvim/feline.nvim",
+        disable = false,
         load_file = true,
         after = {"nvim-gps", "gitsigns.nvim", "nvim-web-devicons"}
     },
@@ -220,7 +222,7 @@ local install_plugins = {
         "kyazdani42/nvim-tree.lua",
         load_file = true,
         after = "nvim-web-devicons",
-        cmd = "NvimTreeToggle"
+        cmd = {"NvimTreeToggle", "NvimTreeFindFile"}
     },
     {
         -- todo tree
@@ -291,9 +293,7 @@ local install_plugins = {
         -- 快速更改单词
         "AndrewRadev/switch.vim",
         load_file = true,
-        keys = {
-            {"n", "gs"}
-        }
+        event = {"BufRead", "BufNewFile"}
     },
     {
         -- markdown 预览
@@ -339,12 +339,6 @@ local install_plugins = {
         "Pocco81/AutoSave.nvim",
         load_file = true,
         event = {"TextChanged", "TextChangedI"}
-    },
-    {
-        -- 自动会话管理
-        "rmagatti/auto-session",
-        load_file = true,
-        disable = true
     },
     {
         -- 自动恢复光标位置

@@ -3,7 +3,7 @@
 local plugin_key = vim.u.keymap.set.aerial.plugin_set
 require("aerial").setup(
     {
-        min_width = 30,
+        min_width = 25,
         -- 目前 LSP 支持不是很好，所以用 treesitter 来代替解析工作
         -- backends = {"lsp", "treesitter", "markdown"}
         backends = {"treesitter", "markdown"},
