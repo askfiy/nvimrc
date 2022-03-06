@@ -22,7 +22,7 @@ vim.u.platform_icon = platform_icons[vim.u.platform_info]
 -- 解释器路径
 vim.u.platform_python_path = platform_python[vim.u.platform_info]
 -- 是否开启透明背景
-vim.u.background_transparency = false
+vim.u.background_transparency = true
 
 -- 代码片段存储路径
 vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippet"

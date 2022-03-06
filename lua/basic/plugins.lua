@@ -207,6 +207,13 @@ local install_plugins = {
     {
         -- 轻量级的状态栏插件
         "feline-nvim/feline.nvim",
+        disable = true,
+        load_file = true,
+        after = {"nvim-gps", "gitsigns.nvim", "nvim-web-devicons"}
+    },
+    {
+        -- 轻量级的状态栏插件
+        "nvim-lualine/lualine.nvim",
         disable = false,
         load_file = true,
         after = {"nvim-gps", "gitsigns.nvim", "nvim-web-devicons"}

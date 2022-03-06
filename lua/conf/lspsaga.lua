@@ -2,7 +2,6 @@
 
 local plugin_key = vim.u.keymap.set.lspsaga.plugin_set
 
-
 require("lspsaga").setup(
     {
         -- round、single、double

@@ -5,12 +5,12 @@
 local gps = require("nvim-gps")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
-require("nvim-gps").setup()
-
 local components = {
     active = {},
     inactive = {}
 }
+
+gps.setup()
 
 components.active[1] = {
     {
