@@ -139,6 +139,11 @@ local install_plugins = {
         after = "nvim-cmp"
     },
     {
+        -- SQL 补全
+        "kristijanhusak/vim-dadbod-completion",
+        after = "nvim-cmp"
+    },
+    {
         -- 拼写建议
         "f3fora/cmp-spell",
         after = "nvim-cmp"
@@ -203,13 +208,6 @@ local install_plugins = {
             "nvim-treesitter",
             "plenary.nvim"
         }
-    },
-    {
-        -- 轻量级的状态栏插件
-        "feline-nvim/feline.nvim",
-        disable = true,
-        load_file = true,
-        after = {"nvim-gps", "gitsigns.nvim", "nvim-web-devicons"}
     },
     {
         -- 轻量级的状态栏插件
@@ -323,6 +321,17 @@ local install_plugins = {
             "vue",
             "xml"
         }
+    },
+    {
+        -- SQL 链接基础插件
+        "tpope/vim-dadbod",
+        cmd = "DBUIToggle"
+    },
+    {
+        -- SQL 链接 UI 插件
+        "kristijanhusak/vim-dadbod-ui",
+        load_file = true,
+        after = "vim-dadbod"
     },
     {
         -- 显示滚动条

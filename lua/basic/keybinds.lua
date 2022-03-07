@@ -410,6 +410,13 @@ vim.u.keymap.set.aerial = {
     -- zR    : 关闭所有项目
 }
 
+vim.u.keymap.set.vim_dadbod_ui = {
+    vim_api_set = {
+        {"n", "<leader>4", ":DBUIToggle<cr>", "ns_opt"}
+    },
+    plugin_set = {}
+}
+
 for plug_name, _ in pairs(vim.u.keymap.set) do
     vim.u.keymap.fn.register_key(plug_name)
 end

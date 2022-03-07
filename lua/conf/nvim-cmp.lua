@@ -7,8 +7,8 @@
 -- https://github.com/hrsh7th/cmp-cmdline
 -- https://github.com/f3fora/cmp-spell
 -- https://github.com/rafamadriz/friendly-snippets
--- https://github.com/lukas-reineke/cmp-under-comparator
 -- https://github.com/tzachar/cmp-tabnine
+-- https://github.com/kristijanhusak/vim-dadbod-completion
 
 -- FIX: tabline 在某些计算机上有 1 个 BUG
 -- 当出现：
@@ -39,7 +39,8 @@ cmp.setup(
                 {name = "buffer"},
                 {name = "cmdline"},
                 {name = "spell"},
-                {name = "cmp_tabnine"}
+                {name = "cmp_tabnine"},
+                {name = "vim-dadbod-completion"}
             }
         ),
         -- 格式化补全菜单

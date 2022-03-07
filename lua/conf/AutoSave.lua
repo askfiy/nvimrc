@@ -10,7 +10,8 @@ require("autosave").setup(
         conditions = {
             exists = true,
             filename_is_not = {},
-            filetype_is_not = {},
+            -- 不自动保存的文件类型
+            filetype_is_not = {"sql", "mysql", "plsql"},
             modifiable = true
         },
         write_all_buffers = true,

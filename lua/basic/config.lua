@@ -1,12 +1,5 @@
--- 用户设置
+--------- 用户设置 ---------
 vim.u = {}
-
--- 平台图标
-local platform_icons = {
-    MAC = " ",
-    UNIX = " ",
-    WINDOWS = " "
-}
 
 -- Python 解释器
 local platform_python = {
@@ -17,12 +10,12 @@ local platform_python = {
 
 -- 平台信息
 vim.u.platform_info = vim.bo.fileformat:upper()
--- 平台图标
-vim.u.platform_icon = platform_icons[vim.u.platform_info]
 -- 解释器路径
 vim.u.platform_python_path = platform_python[vim.u.platform_info]
 -- 是否开启透明背景
 vim.u.background_transparency = true
+
+--------- 插件设置 ---------
 
 -- 代码片段存储路径
 vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippet"
@@ -32,6 +25,17 @@ vim.g.undotree_dir = vim.fn.stdpath("config") .. "/undodir"
 vim.g.nvim_lint_dir = vim.fn.stdpath("config") .. "/lint"
 -- translate 代理服务器
 vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
+-- 数据库链接地址
+vim.g.dbs = {
+    {
+        name = "dev",
+        url = "mysql://askfiy@192.168.0.120/db1"
+    },
+    {
+        name = "local",
+        url = "mysql://root@localhost:3306/test"
+    }
+}
 
 -- 自动切换输入法（Fcitx 框架）
 vim.g.FcitxToggleInput = function()
