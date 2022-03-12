@@ -20,11 +20,3 @@ vim.g.neoformat_basic_format_retab = 0
 
 -- 只提示错误消息
 vim.g.neoformat_only_msg_on_error = 1
-
--- 是否开启自动格式化
--- vim.cmd([[
--- augroup fmt
---     autocmd!
---     autocmd BufWritePre * undojoin | Neoformat
--- augroup END
--- ]])

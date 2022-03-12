@@ -157,7 +157,8 @@ local install_plugins = {
         -- tabnine 源,提供基于 AI 的智能补全
         "tzachar/cmp-tabnine",
         run = "./install.sh",
-        after = "nvim-cmp"
+        after = "nvim-cmp",
+        disable = true
     },
     {
         -- 代码调试基础插件
@@ -442,7 +443,9 @@ local packer =
                     if plugin.as then
                         require_path = "conf/" .. plugin.as
                     else
-                        require_path = "conf" .. string.match(plugin[1], "(/[%w-_]+).?")
+                        -- require_path = "conf" .. string.match(plugin[1], "(/[%w-_]+).?")
+                        require_path = "conf/" .. string.match(plugin[1], "/([%w-_]+).?")
+
                     end
                     plugin.config = "require('" .. require_path .. "')"
                 end

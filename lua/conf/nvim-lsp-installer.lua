@@ -8,8 +8,6 @@ local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
--- 绑定 view tree
-
 -- WARN: lsp install 手动书写 LSP 配置文件
 -- 名称：https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- 配置：https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

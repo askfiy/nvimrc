@@ -24,7 +24,7 @@ vim.g.undotree_dir = vim.fn.stdpath("config") .. "/undodir"
 -- lint 配置文件路径
 vim.g.nvim_lint_dir = vim.fn.stdpath("config") .. "/lint"
 -- translate 代理服务器
-vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
+-- vim.g.translator_proxy_url = "socks5://127.0.0.1:7890"
 -- 数据库链接地址
 vim.g.dbs = {
     {
